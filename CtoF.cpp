@@ -1,6 +1,15 @@
-//This calculates for the user celsius to fahrenheit.
-//Written by: JESUS HILARIO HERNANDEZ
-//Last modified: Sept. 24, 2016
+//********************************************************************
+//
+// Jesus H. Hernandez
+// Course: COSC 1436.001 Programming FUndamentals
+// Lab # 4 Ch 3 Programming Challenge #12 Celsius to Fahrenheit
+// Due Date: September 25, 2016
+// Instructor: Korinne Caruso
+
+// Purpose: This program converts Celsius to Fahrenheit.
+// Input: The program receives Celsius temperature from the user
+
+// Last modified: Sept. 23, 2016
 
 #include<iostream>
 #include<iomanip>
@@ -28,7 +37,7 @@ int main()
         cin >> C;
 
         // calculates C to F.
-        F = 1.8 * C + 32;
+        F = (9.0/5.0) * C + 32;
 
         cout << setprecision(5);
         cout << '\n' << C;
@@ -66,7 +75,7 @@ int main()
         }
 
         //for when a the user does not enter a number
-        cout <<"\n\n\nNOTE: \nIF you have pressed somthing other than a number, "<< endl;
+        cout <<"\n\n\nNOTE: \nIF you entered somthing other than a number, "<< endl;
         cout << "the computer will read your answer as 0°C.\n" << endl;
 
     }
@@ -83,3 +92,7 @@ int main()
 
     return 0;
 }
+
+// Output: Program outputs the conversion from Celsius to Fahrenheit.
+//
+//********************************************************************
