@@ -15,8 +15,6 @@
 #include<iomanip>
 using namespace std;
 
-
-
 int main()
 {
     double C; // Celsius Variable
@@ -28,13 +26,11 @@ int main()
     cout << "Would you like to continue? (Y/N) ";
     cin >> ans;
 
-
     //if statement (Y/N) responds to YES
     if (ans == 'y'|| ans == 'Y')
     {
-
         cout << "\nWhat is your temperature in celsius? ";
-        cin >> C;
+        cin.ignore() >> C;
 
         // calculates C to F.
         F = (9.0/5.0) * C + 32;
@@ -47,7 +43,7 @@ int main()
         //these if/else if statements display type of weather that may occur
         if (F >= 120)
         {
-            cout << "Having a cook out?\n" << endl;  //if >= 120
+            cout << "That's oven hot!\n" << endl;  //if >= 120
         }
         else if (F >= 70 && F <= 120)
         {
@@ -74,21 +70,17 @@ int main()
             cout << "Traveling to distant planets, are we?\n" << endl;//if lower that -20 F
         }
 
-        //for when a the user does not enter a number
-        cout <<"\n\n\nNOTE: \nIF you entered somthing other than a number, "<< endl;
-        cout << "the computer will read your answer as 0°C.\n" << endl;
-
     }
     //else if respond to NO
     else if(ans == 'n' || ans == 'N')
-            cout << "\nNo? Ok. Have a nice day! \n" << endl;
+        cout << "\nNo? Ok.\n" << endl;
 
     //When neither Y nor N are pressed
     else
         cout << "\nOops! Neither Y nor N was pressed!" << endl << endl;
 
-
-
+    //Tells user to have a great day
+    cout << "Have a great day.\n" << endl;
 
     return 0;
 }
