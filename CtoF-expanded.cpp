@@ -183,8 +183,6 @@ int main()
                 //end If choice 1 || 2
             }
 
-
-
             while(!(keepGoing == 'y' || keepGoing == 'Y' || keepGoing == 'n' || keepGoing == 'N'))
             {
                 //Explain error
