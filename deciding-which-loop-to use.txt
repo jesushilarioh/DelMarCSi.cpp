@@ -8,7 +8,7 @@ THE DO-WHILE LOOP: The do-while loop is also a conditional loop. Unlike the whil
 It is ideal in situations where you always want the loop to iterate at least once. The do-while loop is a good choice for
 repeating a menu.
 
-THE FOR LOOP: The for loop is a pretest loop that has built-in expressions for initalizing, testing, and updating. These
+THE FOR LOOP: The for loop is a pretest loop that has built-in expressions for (initalizing, testing, and updating). These
 expressions make it very convenient to use a counter variable to control the number of iterations that the loop performs.
 The initialization expression can initialize the counter variable to a starting value, the test expression can test the 
 counter variable to determine whether it holds the maximum value, and the update expression can increment the counter 
