@@ -17,28 +17,24 @@ void displayData(double, double, double);   // Display Data
 
 int main()
 {
-   double length,    // The rectangle's length
-          width,     // The rectangle's width
-          area;      // The rectangle's area
-
-   // Get the rectangle's length.
-   length = getLength();
-
-   // Get the rectangle's width.
-   width = getWidth();
-
-   // Get the rectangle's area.
-   area = getArea(length, width);
-
-   // Display the rectangle's data.
-   displayData(length, width, area);
-
-   return 0;
+    double length,    // The rectangle's length
+           width,     // The rectangle's width
+           area;      // The rectangle's area
+    
+    // Get the rectangle's length.
+    length = getLength();
+    
+    // Get the rectangle's width.
+    width = getWidth();
+    
+    // Get the rectangle's area.
+    area = getArea(length, width);
+    
+    // Display the rectangle's data.
+    displayData(length, width, area);
+    
+    return 0;
 }
-//***************************************************
-// You must write the getLength, getWidth, getArea, *
-// and displayData functions.                       *
-//***************************************************
 
 //***************************************************
 // Definition of function getLength function.       *
@@ -50,7 +46,15 @@ double getLength()
 {
     double num;
     cout << "Enter the length: ";
-    cin >> num;
+    while (!(cin >> num))
+    {
+        //Explain Error
+        cout << "ERROR: a number must be entere: ";
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(1200, '\n');
+    }
     return num;
 }
 //***************************************************
@@ -63,7 +67,15 @@ double getWidth()
 {
     double num;
     cout << "Enter the width: ";
-    cin >> num;
+    while (!(cin >> num))
+    {
+        //Explain Error
+        cout << "ERROR: a number must be entere: ";
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(1200, '\n');
+    }
     return num;
 }
 //***************************************************
