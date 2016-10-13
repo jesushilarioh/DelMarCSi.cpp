@@ -49,7 +49,7 @@ double getLength()
     while (!(cin >> num))
     {
         //Explain Error
-        cout << "ERROR: a number must be entere: ";
+        cout << "ERROR: a number must be entered: ";
         // Clear input stream
         cin.clear();
         // Discard previous input
@@ -70,7 +70,7 @@ double getWidth()
     while (!(cin >> num))
     {
         //Explain Error
-        cout << "ERROR: a number must be entere: ";
+        cout << "ERROR: a number must be entered: ";
         // Clear input stream
         cin.clear();
         // Discard previous input
