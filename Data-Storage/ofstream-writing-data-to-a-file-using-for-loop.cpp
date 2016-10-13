@@ -1,5 +1,5 @@
 //********************************************************************
-//This program reads data from a file
+//This program writes data to a file
 //
 //By: JESUS HILARIO HERNANDEZ
 //Last Updated: October 12th, 2016
