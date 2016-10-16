@@ -1,1 +1,3 @@
-     2e+02 Fahrenheit = 1e+02 Celsius
+234.0 Fahrenheit = 112.2 Celsius
+234.0 Fahrenheit = 112.2 Celsius
+234.0 Celsius = 453.2 Fahrenheit
