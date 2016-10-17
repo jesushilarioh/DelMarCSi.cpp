@@ -36,9 +36,6 @@
 #include <fstream>
 using namespace std;
 
-// File Stream Object
-ofstream outputFile;
-
 // Global Constants
 const int CHOICE_1 = 1,
 CHOICE_2 = 2,
@@ -46,147 +43,140 @@ CHOICE_3 = 3;
 
 // Function Prototypes
 void displayMenu();                         // Display menu
-double convertCtoF(double, double);         // C to F Conversion
-double convertFtoC(double, double);         // F to C Conversion
-void displayResults(int, double, double);   // Display result
-void sendResults(int, double, double);      // Send results to .txt file
+double convertCtoF(double);         // C to F Conversion
+double convertFtoC(double);         // F to C Conversion
+void displayResults(int, double, double);   // Display result use pass by reference
+void sendResults(int, double, double);      // Send results to .txt file refer to page:660 to look at append feature.
 int errorChecking1(int);                    // Error Checking Menu Choice
 double errorChecking2(double);              // Error Checking For Numbers
 char errorChecking3(char);                  // Error Checking (Y/N)
 
 int main()
 {
-  // Open file results.txt
-  outputFile.open("results.txt");
+    // Variables:
+    double C,       // Holds Celsius Temp
+    F;       // Holds Fahrenheit Temp
+    int choice;     // Holds Menu choice
+    char choice2;   // Hold (Y/N) Ans.
 
-  // Variables:
-  double C,       // Holds Celsius Temp
-         F;       // Holds Fahrenheit Temp
-  int choice;     // Holds Menu choice
-  char choice2;   // Hold (Y/N) Ans.
+    cout << "\n\n\t\tThis program converts Celsius to fahrenheit "
+         << "\n\t\tor Fahrenheit to Celsius." << endl;
 
-
-  cout << "\n\n\t\tThis program converts Celsius to fahrenheit "
-       << "\n\t\tor Fahrenheit to Celsius." << endl;
-
-  // Do-While menu
-  do
-  {
-    // Display Menu
-    displayMenu();
-
-    // Error Check Menu Choice
-    choice = errorChecking1(choice);
-
-    // Switch menu
-    switch (choice)
+    // Do-While menu
+    do
     {
-      // Choice 1
-      case CHOICE_1:
+        // Display Menu
+        displayMenu();
 
-      // Ask for Celsius temp.
-      cout << "\n\t\tWhat is the Celsius temperature "
-           << "\n\t\tthat you would wish to convert? ";
+        // Error Check Menu Choice
+        choice = errorChecking1(choice);
 
-      // Error Check For Numbers
-      C = errorChecking2(C = 0);
+        // Switch menu
+        switch (choice)
+        {
+                // Choice 1
+            case CHOICE_1:
 
-      // Calculate C to F
-      F = convertCtoF(F = 0, C);
+                // Ask for Celsius temp.
+                cout << "\n\t\tWhat is the Celsius temperature "
+                     << "\n\t\tthat you would wish to convert? ";
 
-      // Display C to F conversion
-      displayResults(choice, C, F);
+                // Error Check For Numbers
+                C = errorChecking2(C);
 
-      // Send Results to results.txt
-      sendResults(choice, C, F);
+                // Calculate C to F
+                F = convertCtoF(C);
 
-      // Asking if user would like to make another conversion
-      cout << "\n\t\tWould you like to make another conversion?" << endl;
-      cout << "\t\tY: if yes" << endl;
-      cout << "\t\tN: if no \n\t\t";
-      cin >> choice2;
+                // Display C to F conversion
+                displayResults(choice, C, F);
 
-      // Validating user input, whether y or n is pressed.
-      choice2 = errorChecking3(choice2);
+                // Send Results to results.txt
+                sendResults(choice, C, F);
 
-      // If pressed Y, acknowledge that they did
-      if (choice2 == 'y' || choice2 == 'Y')
-      {
-        cout << "\n\n\t\tOk. " ;
+                // Asking if user would like to make another conversion
+                cout << "\n\t\tWould you like to make another conversion?" << endl;
+                cout << "\t\tY: if yes" << endl;
+                cout << "\t\tN: if no \n\t\t";
+                cin >> choice2;
 
-      }
-      // If pressed N, acknowledge that they did
-      else if (choice2 == 'n' || choice2 == 'N')
-      {
-        cout << "\n\nThank you! Have a nice day.\n\n" << endl;
-        cout << "\n\n\t\tThis program converts Celsius to fahrenheit "
-             << "\n\t\tor Fahrenheit to Celsius." << endl;
+                // Validating user input, whether y or n is pressed.
+                choice2 = errorChecking3(choice2);
 
-      }
-      break; // End of case 1
+                // If pressed Y, acknowledge that they did
+                if (choice2 == 'y' || choice2 == 'Y')
+                {
+                    cout << "\n\n\t\tOk. " ;
 
-      // Choice 2
-      case CHOICE_2:
+                }
+                // If pressed N, acknowledge that they did
+                else if (choice2 == 'n' || choice2 == 'N')
+                {
+                    cout << "\n\nThank you! Have a nice day.\n\n" << endl;
+                    cout << "\n\n\t\tThis program converts Celsius to fahrenheit "
+                         << "\n\t\tor Fahrenheit to Celsius." << endl;
 
-      // Ask for Fahrenheit Temp
-      cout << "\n\t\tWhat is the Fahrenheit temperature " << endl;
-      cout << "\t\tthat you would wish to convert? ";
+                }
+                break; // End of case 1
 
-      // Error check choice 2
-      F = errorChecking2(F = 0);
+                // Choice 2
+            case CHOICE_2:
 
-      // Calculate F to C
-      C = convertFtoC(C = 0, F);
+                // Ask for Fahrenheit Temp
+                cout << "\n\t\tWhat is the Fahrenheit temperature " << endl;
+                cout << "\t\tthat you would wish to convert? ";
 
-      // Display F to C conversion
-      displayResults(choice, F, C);
+                // Error check choice 2
+                F = errorChecking2(F);
 
-      // Send Results to results.txt
-      sendResults(choice, F, C);
+                // Calculate F to C
+                C = convertFtoC(F);
 
-      // Asking if user would like to make another conversion
-      cout << "\n\t\tWould you like to make another conversion?" << endl;
-      cout << "\t\tY: if yes" << endl;
-      cout << "\t\tN: if no \n\t\t";
-      cin >> choice2;
+                // Display F to C conversion
+                displayResults(choice, F, C);
 
-      // Validating user input, whether y or n is pressed.
-      choice2 = errorChecking3(choice2);
+                // Send Results to results.txt
+                sendResults(choice, F, C);
 
-      // If Y pressed, acknowledge that they did
-      if (choice2 == 'y')
-      {
-        cout << "\n\n\t\tOk. " ;
+                // Asking if user would like to make another conversion
+                cout << "\n\t\tWould you like to make another conversion?" << endl;
+                cout << "\t\tY: if yes" << endl;
+                cout << "\t\tN: if no \n\t\t";
+                cin >> choice2;
 
-      }
-      // If N pressed, acknowledge that they did
-      else if (choice2 == 'n')
-      {
-        cout << "\n\nThank you! Have a nice day.\n\n" << endl;
-        cout << "\n\n\t\tThis program converts Celsius to fahrenheit "
-             << "\n\t\tor Fahrenheit to Celsius." << endl;
-      }
-      break; // End of case 2
+                // Validating user input, whether y or n is pressed.
+                choice2 = errorChecking3(choice2);
 
-      // Choice 3
-      case CHOICE_3 :
+                // If Y pressed, acknowledge that they did
+                if (choice2 == 'y')
+                {
+                    cout << "\n\n\t\tOk. " ;
 
-      // Let user know they program quitting.
-      cout << "\n\t\tQuitting program..." << endl;
-      cout << "\n\t\tProgram Ended." << endl;
-      break; // End of case 3
+                }
+                // If N pressed, acknowledge that they did
+                else if (choice2 == 'n')
+                {
+                    cout << "\n\nThank you! Have a nice day.\n\n" << endl;
+                    cout << "\n\n\t\tThis program converts Celsius to fahrenheit "
+                         << "\n\t\tor Fahrenheit to Celsius." << endl;
+                }
+                break; // End of case 2
 
-    }   // End Switch menu
+                // Choice 3
+            case CHOICE_3 :
 
-  } while (choice == 1 || choice == 2);// End Do-While menu.
+                // Let user know they program quitting.
+                cout << "\n\t\tQuitting program..." << endl;
+                cout << "\n\t\tProgram Ended." << endl;
+                break; // End of case 3
 
-  // For padding before the 0 exit code.
-  cout << endl << endl;
+        }   // End Switch menu
 
-  // Close file results.txt
-  outputFile.close();
+    } while (choice == 1 || choice == 2);// End Do-While menu.
 
-  return 0;
+    // For padding before the 0 exit code.
+    cout << endl << endl;
+
+    return 0;
 }
 
 //*******************************************
@@ -196,10 +186,10 @@ int main()
 
 void displayMenu()
 {
-  cout << "\n\t\tHere are your options: \n"
-       << "\t\t\t1. Convert Celsius to Fahrenheit" << endl
-       << "\t\t\t2. Convert Fahrenheit to Celsius" << endl
-       << "\t\t\t3. Quit Program\t\t\t\t";
+    cout << "\n\t\tHere are your options: \n"
+         << "\t\t\t1. Convert Celsius to Fahrenheit" << endl
+         << "\t\t\t2. Convert Fahrenheit to Celsius" << endl
+         << "\t\t\t3. Quit Program\t\t\t\t";
 }
 
 //*******************************************
@@ -207,10 +197,10 @@ void displayMenu()
 // celsius temperature to fahrenheit.       *
 //*******************************************
 
-double convertCtoF(double num1, double num2)
+double convertCtoF(double num1)
 {
-  num1 = (9.0/5.0) * num2 + 32;
-  return num1;
+    return (9.0/5.0) * num1 + 32;
+
 }
 //*******************************************
 // The convertFtoC() function converts a    *
@@ -218,10 +208,9 @@ double convertCtoF(double num1, double num2)
 // temperature.                             *
 //*******************************************
 
-double convertFtoC(double num1, double num2)
+double convertFtoC(double num1)
 {
-  num1 = (num2 - 32) * (5.0/9.0);
-  return num1;
+    return (num1 - 32) * (5.0/9.0);
 }
 
 //*******************************************
@@ -232,16 +221,16 @@ double convertFtoC(double num1, double num2)
 
 void displayResults(int num, double num1, double num2)
 {
-  if (CHOICE_1 == num)
-  {
-    cout << "\n\n\t\t" << setprecision(1) << fixed << num1 << " Celsius = "
-         << num2 << " Fahrenheit" << endl;
-  }
-  else if (CHOICE_2 == num)
-  {
-    cout << "\n\n\t\t" << setprecision(1) << fixed << num1 << " Fahrenheit = "
-         << num2 << " Celsius" << endl;
-  }
+    if (CHOICE_1 == num)
+    {
+        cout << "\n\n\t\t" << setprecision(1) << fixed << num1 << " Celsius = "
+             << num2 << " Fahrenheit" << endl;
+    }
+    else if (CHOICE_2 == num)
+    {
+        cout << "\n\n\t\t" << setprecision(1) << fixed << num1 << " Fahrenheit = "
+             << num2 << " Celsius" << endl;
+    }
 }
 
 //*******************************************
@@ -256,17 +245,25 @@ void displayResults(int num, double num1, double num2)
 
 void sendResults(int num, double num1, double num2)
 {
-  if (CHOICE_1 == num)
-  {
-    outputFile << setprecision(1) << fixed << num1 << " Celsius = "
-               << num2 << " Fahrenheit" << endl;
-  }
-  else if (CHOICE_2 == num)
-  {
-    outputFile << setprecision(1) << fixed << num1 << " Fahrenheit = "
-               << num2 << " Celsius" << endl;
-  }
-}
+    // File Stream Object
+    ofstream outputFile;
+    // Open file results.txt
+    outputFile.open("results.txt", ios::out | ios::app);
+
+    if (CHOICE_1 == num)
+    {
+        outputFile << setprecision(1) << fixed << num1 << " Celsius = "
+                   << num2 << " Fahrenheit" << endl;
+    }
+    else if (CHOICE_2 == num)
+    {
+        outputFile << setprecision(1) << fixed << num1 << " Fahrenheit = "
+                   << num2 << " Celsius" << endl;
+    }
+
+    // Close file results.txt
+    outputFile.close();
+ }
 
 //*******************************************
 // The errorChecking1() function is used to *
@@ -280,16 +277,16 @@ void sendResults(int num, double num1, double num2)
 
 int errorChecking1(int num)
 {
-  while(!(cin >> num) || num < CHOICE_1 || num > CHOICE_3)
-  {
-    // Explain error
-    cout << "\n\t\tError: You must choose either 1, 2, or 3. ";
-    // Clear input stream
-    cin.clear();
-    // Discard previous input
-    cin.ignore(1200, '\n');
+    while(!(cin >> num) || num < CHOICE_1 || num > CHOICE_3)
+    {
+        // Explain error
+        cout << "\n\t\tError: You must choose either 1, 2, or 3. ";
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(1200, '\n');
     }
-  return num;
+    return num;
 }
 
 //***********************************************
@@ -303,17 +300,17 @@ int errorChecking1(int num)
 
 double errorChecking2(double num)
 {
-  while (!(cin >> num))
-  {
-    // Explain Error
-    cout << "\n\t\tError: A number must be entered. "
-         << "\n\t\tWhat is the Celsius temperature? ";
-    // Clear input stream
-    cin.clear();
-    // Discard previous input
-    cin.ignore(1200, '\n');
-  }
-  return num;
+    while (!(cin >> num))
+    {
+        // Explain Error
+        cout << "\n\t\tError: A number must be entered. "
+        << "\n\t\tWhat is the Celsius temperature? ";
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(1200, '\n');
+    }
+    return num;
 }
 
 //***********************************************
@@ -326,15 +323,15 @@ double errorChecking2(double num)
 
 char errorChecking3(char letter)
 {
-  while(!(letter == 'y' || letter == 'Y' || letter == 'n' || letter == 'N'))
-  {
-    cout << "\n\t\tError: choose either Y or N.";
-    // Clear input stream
-    cin.clear();
-    // Discard previous input
-    cin.ignore(1200, '\n');
-    // Re-enter input
-    cin >> letter;
-  }
-  return letter;
+    while(!(letter == 'y' || letter == 'Y' || letter == 'n' || letter == 'N'))
+    {
+        cout << "\n\t\tError: choose either Y or N.";
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(1200, '\n');
+        // Re-enter input
+        cin >> letter;
+    }
+    return letter;
 }
