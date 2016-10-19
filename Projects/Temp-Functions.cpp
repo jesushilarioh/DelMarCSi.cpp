@@ -38,13 +38,13 @@ using namespace std;
 
 // Global Constants
 const int CHOICE_1 = 1,
-CHOICE_2 = 2,
-CHOICE_3 = 3;
+          CHOICE_2 = 2,
+          CHOICE_3 = 3;
 
 // Function Prototypes
 void displayMenu();                         // Display menu
-double convertCtoF(double);         // C to F Conversion
-double convertFtoC(double);         // F to C Conversion
+double convertCtoF(double);                 // C to F Conversion
+double convertFtoC(double);                 // F to C Conversion
 void displayResults(int, double, double);   // Display result use pass by reference
 void sendResults(int, double, double);      // Send results to .txt file refer to page:660 to look at append feature.
 int errorChecking1(int);                    // Error Checking Menu Choice
@@ -55,7 +55,7 @@ int main()
 {
     // Variables:
     double C,       // Holds Celsius Temp
-    F;       // Holds Fahrenheit Temp
+    F;              // Holds Fahrenheit Temp
     int choice;     // Holds Menu choice
     char choice2;   // Hold (Y/N) Ans.
 

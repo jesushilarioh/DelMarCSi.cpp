@@ -1,2 +1,5 @@
 33.0 Celsius = 91.4 Fahrenheit
 91.4 Fahrenheit = 33.0 Celsius
+33.0 Fahrenheit = 0.6 Celsius
+33.0 Celsius = 91.4 Fahrenheit
+91.4 Fahrenheit = 33.0 Celsius
