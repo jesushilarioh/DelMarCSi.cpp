@@ -3,7 +3,7 @@
 // by zero is detected, the function returns.
 //
 // By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 19th, 2016
+// Last Updated: October 20th, 2016
 //**************************************************************
 #include <iostream>
 using namespace std;
@@ -28,3 +28,13 @@ int main()
 // by arg2 and shows the result. If arg2 is zero, however, the    *
 // function returns.                                              *
 //*****************************************************************
+
+void divide(double arg1, double arg2)
+{
+  if (arg2 == 0.0)
+  {
+    cout << "Sorry, I cannot divide by zero.\n";
+    return;
+  }
+  cout << "The quotient is " << (arg1/ arg2) << endl;
+}
