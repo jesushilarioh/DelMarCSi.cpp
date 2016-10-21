@@ -6,7 +6,7 @@
 // Last Updated: October 20th, 2016
 //**************************************************************
 #include <iostream>
-#include <iomainp>
+#include <iomanip>
 using namespace std;
 
 // Function prototypes
@@ -36,5 +36,27 @@ int main()
 }
 
 //*****************************************************************
-// 
+// Definition of function getRadius.                              *
+// This function asks the user to enter the radius of the circle  *
+// the circle and then returns that number as a double.           *
 //*****************************************************************
+
+double getRadius()
+{
+  double rad;   // local variable within the scope of getRadius
+
+  cout << "Enter the radius of the circle: ";
+  cin >> rad;
+  return rad;
+}
+
+//*****************************************************************
+// Definition of function square.                                 *
+// This function accepts a double argument and returns the square *
+// of the argument as a double.                                   *
+//*****************************************************************
+
+double square(double number)
+{
+  return number * number;
+}
