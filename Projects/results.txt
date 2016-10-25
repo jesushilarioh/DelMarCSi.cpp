@@ -1,3 +1,0 @@
-1234.0 Fahrenheit = 667.8 Celsius
-33.0 Celsius = 91.4 Fahrenheit
-91.5 Fahrenheit = 33.0 Celsius

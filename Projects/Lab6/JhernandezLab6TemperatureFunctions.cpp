@@ -46,7 +46,7 @@ void displayMenu();                         // Display menu
 double convertCtoF(double);                 // C to F Conversion
 double convertFtoC(double);                 // F to C Conversion
 void displayResults(int, double, double);   // Display result use pass by reference
-void sendResults(int, double, double);      // Send results to .txt file refer to page:660 to look at append feature.
+void sendResults(int, double, double);      // Send results to .txt file
 int errorChecking1(int);                    // Error Checking Menu Choice
 double errorChecking2(double);              // Error Checking For Numbers
 char errorChecking3(char);                  // Error Checking (Y/N)
@@ -55,7 +55,7 @@ int main()
 {
     // Variables:
     double C,       // Holds Celsius Temp
-    F;              // Holds Fahrenheit Temp
+           F;       // Holds Fahrenheit Temp
     int choice;     // Holds Menu choice
     char choice2;   // Hold (Y/N) Ans.
 
@@ -304,7 +304,7 @@ double errorChecking2(double num)
     {
         // Explain Error
         cout << "\n\t\tError: A number must be entered. "
-        << "\n\t\tWhat is the Celsius temperature? ";
+             << "\n\t\tWhat is the Celsius temperature? ";
         // Clear input stream
         cin.clear();
         // Discard previous input
