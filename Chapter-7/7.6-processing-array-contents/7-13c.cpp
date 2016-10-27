@@ -3,7 +3,7 @@
 // a numeric array.
 //
 // By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 26, 2016
+// Last Updated: October 27, 2016
 //***********************************************************
 #include <iostream>
 #include <iomanip>
