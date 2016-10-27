@@ -2,14 +2,11 @@
 // This program reads data from a file into an array.
 //
 // By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 26, 2016
+// Last Updated: October 27, 2016
 //***********************************************************
 #include <iostream>
 #include <fstream>
 using namespace std;
-
-// Function prototype
-int inputVal(int);          // Error checking for int
 
 int main()
 {
@@ -40,23 +37,4 @@ int main()
     }
     cout << endl;
     return 0;
-}
-
-//*********************************************************
-// Definition of function inputVal.                       *
-// Checks for valid input when using integers.            *
-//*********************************************************
-// Input validation function for int
-int inputVal(int number)
-{
-    while (!(cin >> number))
-    {
-        // Explain Error
-        cout << "Sorry, a number must be entered..." << endl;
-        // Clear input stream
-        cin.clear();
-        // Discard previous input
-        cin.ignore(123, '\n');
-    }
-    return number;
 }
