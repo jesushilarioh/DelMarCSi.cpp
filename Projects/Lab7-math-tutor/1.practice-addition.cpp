@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-    // Get the system time.
+    fl// Get the system time.
     unsigned seed = time(0);
 
     // Seed the random number generator.
