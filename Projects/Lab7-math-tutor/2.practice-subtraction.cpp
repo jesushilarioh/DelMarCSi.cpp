@@ -1,5 +1,5 @@
 //**************************************
-// 1. Practice Addition
+// 2. Practice Subtraction
 //
 // By: Jesus HIlario Hernandez
 // Last updated: Octobe 31, 2016
