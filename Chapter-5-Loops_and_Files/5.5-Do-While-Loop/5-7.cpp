@@ -10,6 +10,7 @@ using namespace std;
 
 int inputVal(int);              // Input Vlaidation (int)
 char inputVal(char);            // Input Validation (char)
+
 int main()
 {
     int score1, score2, score3; // Three scores
