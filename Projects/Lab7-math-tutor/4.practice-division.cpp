@@ -7,6 +7,7 @@
 #include <iostream>
 #include <cstdlib>      // For rand and srand
 #include <ctime>        // For the time function
+#include <iomanip>      // For fomatting
 using namespace std;
 
 int main()
@@ -17,15 +18,16 @@ int main()
     // Seed the random number generator.
     srand(seed);
 
-    const int MIN_VALUE = 0;    // Minimum value
+    const int MIN_VALUE = 1;    // Minimum value
     const int MAX_VALUE = 9;    // Maximum value
 
     // Variables
-    double num1;    // Holds a value
-    double num2;    // Holds a value
-    double sum, answer;
+    int num1;    // Holds a value
+    int num2;    // Holds a value
+    int sum, answer;
     char enterKey;
 
+    cout << fixed << showpoint << setprecision(2);
     num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
     num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
     sum = num1 / num2;
@@ -33,7 +35,8 @@ int main()
     cout << num1 << " / " << num2 << endl;
     cout << "\nPress [enter] to see the answer...";
     cin.get(enterKey);
-    cout << "\nThe answer is " << sum << endl << endl;
+    cout << "\nThe answer is " << sum << " with a remainder of " << (num1 % num2)
+         << endl << endl;
     do
     {
         cout << "Problem: " << endl;
