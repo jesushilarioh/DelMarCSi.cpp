@@ -1,5 +1,5 @@
 //**************************************
-// 4. Calculate Area of Rectangle
+// 5. Calculate Area of Rectangle
 //
 // By: Jesus HIlario Hernandez
 // Last updated: Octobe 31, 2016
@@ -16,7 +16,7 @@ int main()
     cout << "This program calculates the area "
          << "of a rectangle." << endl;
     cout << "Let's start off with the length.\n"
-         << "What is the lenght of the rectangle? ";
+         << "What is the length of the rectangle? ";
     cin >> length;
 
     // Get width
