@@ -48,8 +48,27 @@ int main()
 
     do
     {
-        cout << "What is you selection? ";
-        cin >> menuSelection;
+        cout << "\t-----------------------------------------------------\n"
+             << "\t\t\tWelcome to Math Tutor!\n"
+             << "\t-----------------------------------------------------\n\n"
+             << "\tChoose from the menu to continue: \n\n"
+             << "\t\t1. Practice Addition \n"
+             << "\t\t2. Practice Subtraction \n"
+             << "\t\t3. Practice Multiplication\n"
+             << "\t\t4. Practice Division\n"
+             << "\t\t5. Calculate the Area of a Rectangle\n"
+             << "\t\t6. Calculate the Area of a Circle\n"
+             << "\t\t7. Calculate the Area of a Triangle\n"
+             << "\t\t8. Program Shutdown ";
+
+        while (!(cin >> menuSelection && menuSelection <= CHOICE_8 && menuSelection >= CHOICE_1))
+        {
+            cout << "I'm sorry, choose a number from the menu: ";
+            cin.clear();
+            cin.ignore(123, '\n');
+        }
+
+        cout << endl << endl;
 
         switch (menuSelection)
         {
@@ -83,7 +102,6 @@ int main()
                     int tries = 4;
                     for (int num = 0; num < 4; num++)
                     {
-
                         cout << "I'm sorry wrong password." << endl
                              << "You have " << tries << " more tries: ";
                         cin >> teacherPass;
@@ -92,13 +110,12 @@ int main()
                         {
                             break;
                         }
-
                     }
                 }
         }
     } while (!(teacherPass == SHUTDOWN));
 
-    cout << "Shutting down...\n";
+    cout << "Ending Program...\n";
     cout << "Program ended." << endl << endl;
     return 0;
 }
