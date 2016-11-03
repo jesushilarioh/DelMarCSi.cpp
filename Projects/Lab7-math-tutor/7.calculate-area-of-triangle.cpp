@@ -28,7 +28,12 @@ int main()
     cout << "The area of a triangle "
          << "whose height is " << height
          << "\nand whose base is " << base
-         << "\nis " << area;
+         << "\nis " << area << endl;
+    cout << "To figure this out, " << endl
+         << "we must multiply the base(" <<
+         base << ") by the height(" <<
+         height << ") " << endl
+         << "and divide their sum by 2. " << endl;
 
     // Space before return 0
     cout << '\n' << endl;

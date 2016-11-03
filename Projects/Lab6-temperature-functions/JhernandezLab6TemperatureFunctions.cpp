@@ -37,7 +37,7 @@
 using namespace std;
 
 // PPD to determine OS and set appropriate clear command
-#ifdef _WIN32
+#ifdef _WIN32 || _WIN64f
 char buffer[4] = "cls";
 const char* clearVar = buffer;
 #else

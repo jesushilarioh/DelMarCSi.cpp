@@ -18,7 +18,7 @@ int main()
     // Seed the random number generator.
     srand(seed);
 
-    const int MIN_VALUE = 1;    // Minimum value
+    const int MIN_VALUE = 0;    // Minimum value
     const int MAX_VALUE = 9;    // Maximum value
 
     // Variables
