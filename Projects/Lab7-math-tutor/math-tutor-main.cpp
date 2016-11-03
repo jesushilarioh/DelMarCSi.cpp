@@ -27,6 +27,8 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include <cstdlib>      // For rand and srand
+#include <ctime>        // For the time function
 using namespace std;
 
 // Global Constants used fo menu selection.
@@ -39,41 +41,33 @@ const int CHOICE_1 = 1,
           CHOICE_7 = 7,
           CHOICE_8 = 8;
 
+// Function Prototypes
+bool inputVal(bool);
+int menu(int);
+
 int main()
 {
     const string SHUTDOWN = "CarusoShutDown";
     int menuSelection;
     string teacherPass;
 
-
     do
     {
-        cout << "\t-----------------------------------------------------\n"
-             << "\t\t\tWelcome to Math Tutor!\n"
-             << "\t-----------------------------------------------------\n\n"
-             << "\tChoose from the menu to continue: \n\n"
-             << "\t\t1. Practice Addition \n"
-             << "\t\t2. Practice Subtraction \n"
-             << "\t\t3. Practice Multiplication\n"
-             << "\t\t4. Practice Division\n"
-             << "\t\t5. Calculate the Area of a Rectangle\n"
-             << "\t\t6. Calculate the Area of a Circle\n"
-             << "\t\t7. Calculate the Area of a Triangle\n"
-             << "\t\t8. Program Shutdown ";
-
-        while (!(cin >> menuSelection && menuSelection <= CHOICE_8 && menuSelection >= CHOICE_1))
-        {
-            cout << "I'm sorry, choose a number from the menu: ";
-            cin.clear();
-            cin.ignore(123, '\n');
-        }
+        // Display Menu, receive user input
+        menuSelection = menu(menuSelection);
 
         cout << endl << endl;
 
         switch (menuSelection)
         {
             case CHOICE_1:
-                cout << "You've chosen 1. " << endl;
+                bool anotherProb;
+                do
+                {
+                  cout << "Press 1 to get another problem\n"
+                       << "or 0 to return to the main menu ";
+                  anotherProb = inputVal(anotherProb);
+                } while (anotherProb == true);
                 break;
             case CHOICE_2:
                 cout << "You've chosen 2. " << endl;
@@ -118,4 +112,51 @@ int main()
     cout << "Ending Program...\n";
     cout << "Program ended." << endl << endl;
     return 0;
+}
+
+//*******************************************************
+// The inputVal Function check for valid input. In      *
+// this case a boolean must be enter as valid input.    *
+// The user will be promted to enter valid data if      *
+// they've entered invalid data.                        *
+//*******************************************************
+
+bool inputVal(bool num)
+{
+    while (!(cin >> num))
+    {
+        cout << "I'm sorry either a 1 or a 0 must be enter to proceed: ";
+        cin.clear();
+        cin.ignore(123, '\n');
+    }
+    return num;
+}
+
+//*******************************************************************
+// Function menu displays the main menu, receives user selection,   *
+// and checks for valid input.                                      *
+//*******************************************************************
+
+int menu(int num)
+{
+    cout << "\t-----------------------------------------------------\n"
+         << "\t\t\tWelcome to Math Tutor!\n"
+         << "\t-----------------------------------------------------\n\n"
+         << "\tChoose from the menu to continue: \n\n"
+         << "\t\t1. Practice Addition \n"
+         << "\t\t2. Practice Subtraction \n"
+         << "\t\t3. Practice Multiplication\n"
+         << "\t\t4. Practice Division\n"
+         << "\t\t5. Calculate the Area of a Rectangle\n"
+         << "\t\t6. Calculate the Area of a Circle\n"
+         << "\t\t7. Calculate the Area of a Triangle\n"
+         << "\t\t8. Program Shutdown ";
+
+    while (!(cin >> num && num <= CHOICE_8 && num >= CHOICE_1))
+    {
+        cout << "I'm sorry, choose a number from the menu: ";
+        cin.clear();
+        cin.ignore(123, '\n');
+    }
+    return num;
 }
