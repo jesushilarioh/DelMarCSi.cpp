@@ -44,7 +44,12 @@ const int CHOICE_1 = 1,
 // Function Prototypes
 bool inputVal(bool);
 int menu(int);
-bool additionPrac();
+bool additionPractice();
+bool subtractionPractice();
+bool multiplicationPractice();
+bool divisionPractice();
+bool calculateAreaOfRectangle();
+bool calculateAreaOfCircle();
 
 int main()
 {
@@ -68,22 +73,22 @@ int main()
         switch (menuSelection)
         {
             case CHOICE_1:
-                additionPrac();
+                additionPractice();
                 break;
             case CHOICE_2:
-                cout << "You've chosen 2. " << endl;
+                subtractionPractice();
                 break;
             case CHOICE_3:
-                cout << "You've chosen 3. " << endl;
+                multiplicationPractice();
                 break;
             case CHOICE_4:
-                cout << "You've chosen 4. " << endl;
+                divisionPractice();
                 break;
             case CHOICE_5:
-                cout << "You've chosen 5. " << endl;
+                calculateAreaOfRectangle();
                 break;
             case CHOICE_6:
-                cout << "You've chosen 6. " << endl;
+                calculateAreaOfCircle();
                 break;
             case CHOICE_7:
                 cout << "You've chosen 7. " << endl;
@@ -162,19 +167,24 @@ int menu(int num)
     return num;
 }
 
-bool additionPrac()
+//***************************************************************
+// The additionPractice function shows a random addition        *
+// problem, asks for user input, and returns a boolean value.   *
+//***************************************************************
+
+bool additionPractice()
 {
     bool anotherProb;
     do
     {
+
+        const int MIN_VALUE = 0;    // Minimum value
+        const int MAX_VALUE = 9;    // Maximum value
+
         // Variables
         int num1;                   // Holds a value
         int num2;                   // Holds a value
         int sum, answer;
-        char enterKey;
-
-        const int MIN_VALUE = 0;    // Minimum value
-        const int MAX_VALUE = 9;    // Maximum value
 
         num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
         num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
@@ -223,11 +233,274 @@ bool additionPrac()
 
         } while (answer != sum);
 
-            cout << "Press 1 to get another problem\n"
-                 << "or 0 to return to the main menu ";
-            anotherProb = inputVal(anotherProb);
-            cout << endl;
+        cout << "Press 1 to get another problem\n"
+             << "or 0 to return to the main menu ";
+        anotherProb = inputVal(anotherProb);
+        cout << endl;
 
     } while (anotherProb == true);
     return anotherProb;
+}
+
+//***************************************************************
+// The subtractionPractice function shows a random subtraction  *
+// problem, asks for user input, and returns a boolean value.   *
+//***************************************************************
+
+bool subtractionPractice()
+{
+    bool anotherProb;
+    do
+    {
+        const int MIN_VALUE = 0;    // Minimum value
+        const int MAX_VALUE = 9;    // Maximum value
+
+        // Variables
+        int num1;    // Holds a value
+        int num2;    // Holds a value
+        int sum, answer;
+
+        num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        sum = num1 - num2;
+
+        cout << num1 << " - " << num2 << endl;
+        cout << "\nPress [enter] to see the answer...";
+
+        cin.clear();
+        cin.ignore(123, '\n');
+        cin.get();
+        cout << "\nThe answer is " << sum << endl << endl;
+        do
+        {
+            cout << "Problem: " << endl;
+            cout << "\tIf I have " << num1 ;
+
+            if (num1 == 1)
+            {
+                cout << " pencil";
+            }
+            else
+            {
+                cout << " pencils";
+            }
+            cout << " and " << num2;
+
+            if (num2 == 1)
+            {
+                cout << " pen";
+            }
+            else
+            {
+                cout << " pens";
+            }
+            cout << endl
+                 << "\thow many pens and pencils do I have altogether? ";
+            cin >> answer;
+            if (answer == sum)
+            {
+                cout << "\nGreat work! " << endl;
+            }
+            else
+            {
+                cout << "\nSorry, try again.\n" << endl;
+
+            }
+
+        } while (answer != sum);
+
+        cout << "Press 1 to get another problem\n"
+             << "or 0 to return to the main menu ";
+        anotherProb = inputVal(anotherProb);
+        cout << endl;
+
+    } while (anotherProb == true);
+    return anotherProb;
+}
+
+//***************************************************************
+// The multiplicationPractice function shows a random           *
+// multiplication problem, asks for user input, and returns a   *
+// boolean value.                                               *
+//***************************************************************
+
+bool multiplicationPractice()
+{
+    bool anotherProb;
+    do
+    {
+        const int MIN_VALUE = 0;    // Minimum value
+        const int MAX_VALUE = 9;    // Maximum value
+
+        // Variables
+        int num1;    // Holds a value
+        int num2;    // Holds a value
+        int sum, answer;
+        char enterKey;
+
+        num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        sum = num1 * num2;
+
+        cout << num1 << " x " << num2 << endl;
+        cout << "\nPress [enter] to see the answer...";
+        cin.get(enterKey);
+        cout << "\nThe answer is " << sum << endl << endl;
+        do
+        {
+            cout << "Problem: " << endl;
+            cout << "\tIf I have " << num1 << " sets of "
+            << num2 << " swans, how many do I have "
+            << "altogether? ";
+            cin >> answer;
+        } while (answer != sum);
+
+        cout << "Press 1 to get another problem\n"
+             << "or 0 to return to the main menu ";
+        anotherProb = inputVal(anotherProb);
+        cout << endl;
+
+    } while(anotherProb == true);
+    return anotherProb;
+}
+
+//***************************************************************
+// The divisionPractice function shows a random division        *
+// problem, asks for user input, and returns a boolean value.   *
+//***************************************************************
+
+bool divisionPractice()
+{
+    bool anotherProb;
+
+    do
+    {
+        const int MIN_VALUE = 1;    // Minimum value
+        const int MAX_VALUE = 9;    // Maximum value
+
+        // Variables
+        int num1;    // Holds a value
+        int num2;    // Holds a value
+        int sum, answer;
+
+        cout << fixed << showpoint << setprecision(2);
+        num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        sum = num1 / num2;
+
+        cout << num1 << " / " << num2 << endl;
+        cout << "\nPress [enter] to see the answer...";
+
+        cin.clear();
+        cin.ignore(123, '\n');
+        cin.get();
+
+        cout << "\nThe answer is " << sum << " with a remainder of " << (num1 % num2)
+             << endl << endl;
+        do
+        {
+            cout << "Problem: " << endl;
+            cout << "\tIf I have " << num1 << " sets of "
+            << num2 << " swans, how many do I have "
+            << "altogether? ";
+            cin >> answer;
+        } while (answer != sum);
+
+        cout << "Press 1 to get another problem\n"
+             << "or 0 to return to the main menu ";
+        anotherProb = inputVal(anotherProb);
+        cout << endl;
+
+    } while(anotherProb == true);
+
+    return anotherProb;
+}
+
+//***************************************************************
+// The calculateAreaOfRectangle function receives the length and*
+// width from the user, calculates the area of a rectangle, and *
+// prints that calculation to screen.                           *
+//***************************************************************
+
+bool calculateAreaOfRectangle()
+{
+    bool anotherCal;
+    do
+    {
+        // Variables: Hold length, width, and area.
+        double area, length, width;
+
+        // Explain program, then get length
+        cout << "This program calculates the area "
+             << "of a rectangle." << endl;
+        cout << "Let's start off with the length.\n"
+             << "What is the length of the rectangle? ";
+        cin >> length;
+
+        // Get width
+        cout << "Ok, what is the width? ";
+        cin >> width;
+
+        // Calculate and display
+        area = length * width;
+        cout << "The area of a rectangle "
+             << "whose length is " << length
+             << "\nand whose width is " << width
+             << "\nis " << area;
+
+        // Space before return 0
+        cout << '\n' << endl;
+
+        cout << "Press 1 to get another problem\n"
+             << "or 0 to return to the main menu ";
+        anotherCal = inputVal(anotherCal);
+        cout << endl;
+
+    } while(anotherCal == true);
+    return anotherCal;
+}
+
+//*******************************************************************
+// The calculateAreaOfCircle function receives the length and width *
+// from the user, calculates the area of a rectangle, and prints    *
+// that calculation to screen.                                      *
+//*******************************************************************
+
+bool calculateAreaOfCircle()
+{
+    bool anotherCal;
+    do
+    {
+        // Variables: Hold area, radius, PI.
+        const double PI = 3.14;
+        double area, radius, radSquare;
+
+        // Explain program, then get radius
+        cout << "This program calculates the area "
+             << "of a circle.\n" << endl;
+        cout << "Let's start off with the radius.\n"
+             << "What is the radius of the circle? ";
+        cin >> radius;
+        cout << "\n\t\tAwesome!" << endl << endl;
+
+        // Calculate and display
+        radSquare = (radius * radius);
+        area = PI * (radius * radius);
+        cout << "When finding the area of a circle, \n"
+             << "the radius must be squared and then\n"
+             << "multiplied by PI(3.14). " << endl;
+        cout << "\nSo, " << radius << " x " << radius << " = " << radSquare << endl
+             << "and " << radSquare << " x " << PI << " = " << area << "." << endl
+             << "The area of the circle is "<< area << endl;
+        // Space before return 0
+        cout << '\n' << endl;
+
+        cout << "Would you like to calculate the area "
+             << "of another circle?\n"
+             << "1. Yes\n"
+             << "0. Return to main menu ";
+        anotherCal = inputVal(anotherCal);
+    } while(anotherCal == true);
+
+    return anotherCal;
 }
