@@ -44,9 +44,16 @@ const int CHOICE_1 = 1,
 // Function Prototypes
 bool inputVal(bool);
 int menu(int);
+bool additionPrac();
 
 int main()
 {
+    // Get the system time.
+    unsigned seed = time(0);
+
+    // Seed the random number generator.
+    srand(seed);
+
     const string SHUTDOWN = "CarusoShutDown";
     int menuSelection;
     string teacherPass;
@@ -61,13 +68,7 @@ int main()
         switch (menuSelection)
         {
             case CHOICE_1:
-                bool anotherProb;
-                do
-                {
-                  cout << "Press 1 to get another problem\n"
-                       << "or 0 to return to the main menu ";
-                  anotherProb = inputVal(anotherProb);
-                } while (anotherProb == true);
+                additionPrac();
                 break;
             case CHOICE_2:
                 cout << "You've chosen 2. " << endl;
@@ -159,4 +160,74 @@ int menu(int num)
         cin.ignore(123, '\n');
     }
     return num;
+}
+
+bool additionPrac()
+{
+    bool anotherProb;
+    do
+    {
+        // Variables
+        int num1;                   // Holds a value
+        int num2;                   // Holds a value
+        int sum, answer;
+        char enterKey;
+
+        const int MIN_VALUE = 0;    // Minimum value
+        const int MAX_VALUE = 9;    // Maximum value
+
+        num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        sum = num1 + num2;
+
+        cout << num1 << " + " << num2 << endl;
+        cout << "\nPress [enter] to see the answer...";
+        cin.clear();
+        cin.ignore(123, '\n');
+        cin.get();
+        cout << "\nThe answer is " << sum << endl << endl;
+        do
+        {
+            cout << "Problem: " << endl;
+            cout << "\tIf I have " << num1 ;
+
+            if (num1 == 1)
+            {
+                cout << " pencil";
+            }
+            else
+            {
+                cout << " pencils";
+            }
+            cout << " and " << num2;
+
+            if (num2 == 1)
+            {
+                cout << " pen";
+            }
+            else
+            {
+                cout << " pens";
+            }
+            cout << endl
+                 << "\thow many pens and pencils do I have altogether? ";
+            cin >> answer;
+            if (answer == sum)
+            {
+                cout << "\nGreat work! " << endl;
+            }
+            else
+            {
+                cout << "\nSorry, try again.\n" << endl;
+            }
+
+        } while (answer != sum);
+
+            cout << "Press 1 to get another problem\n"
+                 << "or 0 to return to the main menu ";
+            anotherProb = inputVal(anotherProb);
+            cout << endl;
+
+    } while (anotherProb == true);
+    return anotherProb;
 }
