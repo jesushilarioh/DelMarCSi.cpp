@@ -31,7 +31,7 @@
 #include <ctime>        // For the time function
 using namespace std;
 
-// PPD to determine OS and set appropriate clear command
+// Directives for clearing the screen
 #ifdef _WIN32
 char buffer[4] = "cls";
 const char* clearVar = buffer;
@@ -39,13 +39,12 @@ const char* clearVar = buffer;
     char buffer[4] = "cls";
     const char* clearVar = buffer;
     #endif
-
 #else
 char buffer[6] = "clear";
 const char* clearVar = buffer;
 #endif
 
-// Global Constants used fo menu selection.
+// Global Constants for menu selection.
 const int CHOICE_1 = 1,
           CHOICE_2 = 2,
           CHOICE_3 = 3,
@@ -56,17 +55,18 @@ const int CHOICE_1 = 1,
           CHOICE_8 = 8;
 
 // Function Prototypes
-bool inputVal(bool);
-int menu(int);
-bool additionPractice();
-bool subtractionPractice();
-bool multiplicationPractice();
-bool divisionPractice();
-bool calculateAreaOfRectangle();
-bool calculateAreaOfCircle();
-bool calculateAreaOfTriangle();
-void clearScreen();
-int inputVal(int);
+bool inputVal(bool);                // Error Checking
+int menu(int);                      // Menu
+bool additionPractice();            // Addition Practice
+bool subtractionPractice();         // Subtraction Practice
+bool multiplicationPractice();      // Multiplication practice
+bool divisionPractice();            // Division practice
+bool calculateAreaOfRectangle();    // Calculate area of rectangle
+bool calculateAreaOfCircle();       // Calculate area of circle
+bool calculateAreaOfTriangle();     // Calculate area of triangle
+void clearScreen();                 // Clear screen
+int inputVal(int);                  // Error Checking
+double inputVal(double);            // Error Checking
 
 int main()
 {
@@ -76,64 +76,74 @@ int main()
     // Seed the random number generator.
     srand(seed);
 
-    const string SHUTDOWN = "CarusoShutDown";
-    int menuSelection;
-    string teacherPass;
+    // Constant
+    const string SHUTDOWN = "CarusoShutDown";   // To shutdown program
 
+    // Variables
+    int menuSelection;                          // Holds Menu Selection
+    string teacherPass;                         // Holds Shudown Password
+
+    // Do While used to iterate menu
     do
     {
         clearScreen();
         // Display Menu, receive user input
         menuSelection = menu(menuSelection);
-
         cout << endl << endl;
 
+        // Switch used as menu
         switch (menuSelection)
         {
             case CHOICE_1:
-                additionPractice();
+                additionPractice();         // Calling additionPractice function
                 break;
             case CHOICE_2:
-                subtractionPractice();
+                subtractionPractice();      // Calling subtractionPractice function
                 break;
             case CHOICE_3:
-                multiplicationPractice();
+                multiplicationPractice();   // Calling multiplicationPractice function
                 break;
             case CHOICE_4:
-                divisionPractice();
+                divisionPractice();         // Calling divisionPractice function
                 break;
             case CHOICE_5:
-                calculateAreaOfRectangle();
+                calculateAreaOfRectangle(); // Calling calculateAreaOfRectangle function
                 break;
             case CHOICE_6:
-                calculateAreaOfCircle();
+                calculateAreaOfCircle();    // Calling acalculateAreaOfCircle function
                 break;
             case CHOICE_7:
-                calculateAreaOfTriangle();
+                calculateAreaOfTriangle();  // Calling calculateAreaOfTriangle function
                 break;
             case CHOICE_8:
-            clearScreen();
-                cout << "Password please: ";
-                cin >> teacherPass;
 
-                if (teacherPass != SHUTDOWN)
+            // Clear Screen
+            clearScreen();
+
+            // Ask for password, recieve password
+            cout << "Password please: ";
+            cin >> teacherPass;
+
+            // If statement checks for valid password.
+            if (teacherPass != SHUTDOWN)
+            {
+                int tries = 4;
+                for (int num = 0; num < 4; num++)
                 {
-                    int tries = 4;
-                    for (int num = 0; num < 4; num++)
+                    cout << "I'm sorry wrong password." << endl
+                         << "You have " << tries << " more tries: ";
+                    cin >> teacherPass;
+                    tries--;
+                    if (teacherPass == SHUTDOWN)
                     {
-                        cout << "I'm sorry wrong password." << endl
-                             << "You have " << tries << " more tries: ";
-                        cin >> teacherPass;
-                        tries--;
-                        if (teacherPass == SHUTDOWN)
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
+            }
         }
     } while (!(teacherPass == SHUTDOWN));
 
+    // End program valediction
     cout << "Ending Program...\n";
     cout << "Program ended." << endl << endl;
     return 0;
@@ -150,7 +160,8 @@ bool inputVal(bool num)
 {
     while (!(cin >> num))
     {
-        cout << "I'm sorry either a 1 or a 0 must be entered to proceed: ";
+        cout << "\nI'm sorry either a 1 or a 0 \n"
+             << "must be entered to proceed: ";
         cin.clear();
         cin.ignore(123, '\n');
     }
@@ -193,9 +204,13 @@ int menu(int num)
 
 bool additionPractice()
 {
+    //Varable
     bool anotherProb;
+
+    // Another problem? Do While
     do
     {
+        // Constants
         const int MIN_VALUE = 0;    // Minimum value
         const int MAX_VALUE = 9;    // Maximum value
 
@@ -204,69 +219,96 @@ bool additionPractice()
         int num2;                   // Holds a value
         int sum, answer;
 
+        // Assigning a random number to num1
         num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Assigning a random number to num2
         num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Summing random num1 and num2
         sum = num1 + num2;
 
+        // Clear Screen
         clearScreen();
 
+        // Display problem
         cout << num1 << " + " << num2 << endl;
         cout << "\nType in your answer: ";
+        // Receive answer
         answer = inputVal(answer);
 
+        // Process answer
         do
         {
+            // If right answer
             if (answer == sum)
             {
                 cout << "\nGreat work!\n" << endl;
             }
+            // Else wrong answer
             else
             {
-                cout << "\nSorry, hopefully this will help...\n" << endl;
+                cout << "\nNot correct, hopefully this will help...\n" << endl;
 
-            cout << "\tIf I have " << num1 ;
+                cout << "\tIf I have " << num1 ;
 
-            if (num1 == 1)
-            {
-                cout << " pencil";
-            }
-            else
-            {
-                cout << " pencils";
-            }
-            cout << " and " << num2;
+                // If num1 is 1, use singular
+                if (num1 == 1)
+                {
+                    cout << " pencil";
+                }
 
-            if (num2 == 1)
-            {
-                cout << " pen";
-            }
-            else
-            {
-                cout << " pens";
-            }
-            cout << endl
-                 << "\thow many pens and pencils do I have altogether? ";
-            answer = inputVal(answer);
-            if (answer == sum)
-            {
-                cout << "\nGreat work!\n" << endl;
-            }
-        }
+                // Else use plural
+                else
+                {
+                    cout << " pencils";
+                }
+                cout << " and " << num2;
 
+                // If num2 is 1 use singular
+                if (num2 == 1)
+                {
+                    cout << " pen";
+                }
 
+                // Else use plural
+                else
+                {
+                    cout << " pens";
+                }
+                cout << endl
+
+                // Ask for answer to problem
+                     << "\thow many pens and pencils do I have altogether? ";
+
+                // Error Check answer
+                answer = inputVal(answer);
+
+                // If answer correct
+                if (answer == sum)
+                {
+                    cout << "\nGreat work!\n" << endl;
+                }
+            }
+        // End Process answeer Do While
         } while (answer != sum);
 
+        // Ask if would like another problem
         cout << "\nWould you like another addition problem?\n"
              << "1. Yes.\n"
              << "0. No. Return to main menu ";
+
+        // Error Check
         anotherProb = inputVal(anotherProb);
         cout << endl;
 
+    // Clear Screen
     clearScreen();
 
+    // End of Another problem? Do While
     } while (anotherProb == true);
-    return anotherProb;
 
+    // Return boolean value either to
+    // main menu or another problem.
+    return anotherProb;
 }
 
 //***************************************************************
@@ -276,7 +318,10 @@ bool additionPractice()
 
 bool subtractionPractice()
 {
+    // Variable
     bool anotherProb;
+
+    // Another problem? Do While
     do
     {
         const int MIN_VALUE = 0;    // Minimum value
@@ -287,65 +332,93 @@ bool subtractionPractice()
         int num2;    // Holds a value
         int sum, answer;
 
+        // Assign random value to num1
         num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Assign random value to num2
         num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Sum of num1 and num2
         sum = num1 - num2;
 
+        // Clear Screen
         clearScreen();
 
+        // Display problem
         cout << num1 << " - " << num2 << endl;
+        // Ask for a receive answer
         cout << "\nType in your answer: ";
+        // Error Check answer
         answer = inputVal(answer);
 
+        // Process answer
         do
         {
+            // If right answer
             if (answer == sum)
             {
                 cout << "\nGreat work!\n" << endl;
             }
+
+            // Else wrong answer
             else
             {
                 cout << "\nSorry, hopefully this will help...\n" << endl;
+                cout << "\tIf I have " << num1 ;
 
-            cout << "\tIf I have " << num1 ;
+                // If num1 is 1, use singular
+                if (num1 == 1)
+                {
+                    cout << " pencil";
+                }
 
-            if (num1 == 1)
-            {
-                cout << " pencil";
-            }
-            else
-            {
-                cout << " pencils";
-            }
-            cout << " and " << num2;
+                // Else use plural
+                else
+                {
+                    cout << " pencils";
+                }
+                cout << " and " << num2;
 
-            if (num2 == 1)
-            {
-                cout << " pen";
-            }
-            else
-            {
-                cout << " pens";
-            }
-            cout << endl
-                 << "\tand subtract them from each other,\n"
-                 << "\thow many do I have? ";
-            answer = inputVal(answer);
-            if (answer == sum)
-            {
-                cout << "\nGreat work!\n" << endl;
-            }
-        }
+                // If num2 is 1, use singular
+                if (num2 == 1)
+                {
+                    cout << " pen";
+                }
 
+                // Else use plural
+                else
+                {
+                    cout << " pens";
+                }
+
+                // Ask for answer to problem
+                cout << endl
+                     << "\tand subtract them from each other,\n"
+                     << "\thow many do I have? ";
+                // Error Check answer
+                answer = inputVal(answer);
+
+                // If answer correct
+                if (answer == sum)
+                {
+                    cout << "\nGreat work!\n" << endl;
+                }
+            }
+
+        // End Process answeer Do While
         } while (answer != sum);
 
+        // Ask if would like another problem
         cout << "\nWould you like another addition problem?\n"
              << "1. Yes.\n"
              << "0. No. Return to main menu ";
+        // Error check
         anotherProb = inputVal(anotherProb);
         cout << endl;
 
+    // End of Another problem? Do While
     } while (anotherProb == true);
+
+    // Return boolean value either to
+    // main menu or another problem.
     return anotherProb;
 }
 
@@ -357,56 +430,80 @@ bool subtractionPractice()
 
 bool multiplicationPractice()
 {
+    // Variable
     bool anotherProb;
+
+    // Another problem? Do While
     do
     {
+        // Constants
         const int MIN_VALUE = 0;    // Minimum value
         const int MAX_VALUE = 9;    // Maximum value
 
         // Variables
-        int num1;    // Holds a value
-        int num2;    // Holds a value
+        int num1;                    // Holds a value
+        int num2;                    // Holds a value
         int sum, answer;
 
+        // Assign random number to num1
         num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Assign random number to num2
         num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Sum of num1 and num2
         sum = num1 * num2;
 
+        // Clear screen
         clearScreen();
 
+        // Display problem and receive answer.
         cout << num1 << " * " << num2 << endl;
         cout << "\nType in your answer: ";
+        // Error Check answer
         answer = inputVal(answer);
 
+        // Process answer
         do
         {
+            // If right answer
             if (answer == sum)
             {
                 cout << "\nGreat work!\n" << endl;
             }
+
+            // Else wrong answer
             else
             {
+                // Explain how to solve problem and
+                // ask for new answer.
                 cout << "\nNot correct, hopefully this will help...\n" << endl;
-
                 cout << "\tIf I have " << num1 << " sets of "
                 << num2 << " swans, how many do I have "
                 << "altogether? ";
-                 answer = inputVal(answer);
+                // Error check answer
+                answer = inputVal(answer);
+
+                // If answer right
                 if (answer == sum)
                 {
                     cout << "\nGreat work!\n" << endl;
                 }
             }
-
+        // End of Processing answer.
         } while (answer != sum);
 
+        // Ask if would like another problem
         cout << "\nWould you like another addition problem?\n"
              << "1. Yes.\n"
              << "0. No. Return to main menu ";
+        // Error check anotherProb
         anotherProb = inputVal(anotherProb);
         cout << endl;
 
+    // End of Another problem? Do While
     } while(anotherProb == true);
+
+    // Return boolean value either to
+    // main menu or another problem.
     return anotherProb;
 }
 
@@ -417,51 +514,70 @@ bool multiplicationPractice()
 
 bool divisionPractice()
 {
+    // Variable
     bool anotherProb;
 
+    // Another Problem?
     do
     {
+        // Constants
         const int MIN_VALUE = 1;    // Minimum value
         const int MAX_VALUE = 9;    // Maximum value
 
         // Variables
-        int num1;    // Holds a value
-        int num2;    // Holds a value
+        int num1;                   // Holds a value
+        int num2;                    // Holds a value
         int sum, answer, remain;
 
+        // Assign random number to num1
         num1 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Assign random number to num2
         num2 = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+        // Sum of num1 and num2
         sum = num1 / num2;
+        // Calculate the remainded or num1 and num2
         remain = num1 % num2;
 
+        // Clear the screen
         clearScreen();
 
+        // Display problem
         cout << num1 << " / " << num2 << endl;
 
+        // Ask to press enter to continue
         cout << "\nPress [ENTER] to see answer: ";
+        // Clear previous input
         cin.clear();
         cin.ignore(123, '\n');
         cin.get();
 
+        // Discribe now to solve problem
         cout << endl << sum << " remainder " << remain << endl;
         cout << "\n\tIf I take " << num1 << " and divide it by " << num2
              << ", \n\t" << "I will get " << sum << " with a remainder of "
              << remain << endl;
 
+        // Ask to press enter to continue
         cout << "\nPress [ENTER] twice to continue: ";
+        // Clear previous input
         cin.clear();
         cin.ignore(123, '\n');
         cin.get();
 
+        // Ask if would like another problem
         cout << "\nWould you like another addition problem?\n"
              << "1. Yes.\n"
              << "0. No. Return to main menu ";
+        // Error check anotherProb input
         anotherProb = inputVal(anotherProb);
 
         cout << endl;
 
+    // End of Another Problem? do while loop
     } while(anotherProb == true);
 
+    // Return boolean value either to
+    // main menu or another problem.
     return anotherProb;
 }
 
@@ -473,39 +589,53 @@ bool divisionPractice()
 
 bool calculateAreaOfRectangle()
 {
+    // Variable
     bool anotherCal;
+
+    // Another problem? do while loop
     do
     {
         // Variables: Hold length, width, and area.
         double area, length, width;
 
-        // Explain program, then get length
-        cout << "This program calculates the area "
-             << "of a rectangle." << endl;
-        cout << "Let's start off with the length.\n"
-             << "What is the length of the rectangle? ";
-        cin >> length;
+        clearScreen();
+
+        // Ask for length
+        cout << "What is the length of the rectangle? ";
+        length = inputVal(length);
 
         // Get width
-        cout << "Ok, what is the width? ";
-        cin >> width;
+        cout << "What is the width? ";
+        width = inputVal(width);
 
         // Calculate and display
         area = length * width;
-        cout << "The area of a rectangle "
-             << "whose length is " << length
-             << "\nand whose width is " << width
-             << "\nis " << area;
+        cout << "\nMultiplying the length by the width " << endl
+             << "determines the area of a rectangle. \n" << endl;
 
-        // Space before return 0
-        cout << '\n' << endl;
+        // Ask to pree enter ton continue
+        cout << "Type [ENTER] to continue: ";
+        // Clear previous input
+        cin.clear();
+        cin.ignore(123, '\n');
+        cin.get();
 
-        cout << "Press 1 to get another problem\n"
-             << "or 0 to return to the main menu ";
+        // Discribe how to solve the problem
+        cout << "\nThe area of the rectangle is " << area << endl << endl;
+
+        // Ask if would like another problem.
+        cout << "\nWould you like to make another calculation?\n"
+             << "1. Yes.\n"
+             << "0. No. Return to main menu ";
+        // Error check anotherCal
         anotherCal = inputVal(anotherCal);
         cout << endl;
 
+    // End of Another probelm? do while loop
     } while(anotherCal == true);
+
+    // Return boolean value either to
+    // main menu or another problem.
     return anotherCal;
 }
 
@@ -517,40 +647,53 @@ bool calculateAreaOfRectangle()
 
 bool calculateAreaOfCircle()
 {
+    // Variable
     bool anotherCal;
+
+    // Another problem? do while loop
     do
     {
         // Variables: Hold area, radius, PI.
         const double PI = 3.14;
         double area, radius, radSquare;
 
-        // Explain program, then get radius
-        cout << "This program calculates the area "
-             << "of a circle.\n" << endl;
-        cout << "Let's start off with the radius.\n"
-             << "What is the radius of the circle? ";
-        cin >> radius;
-        cout << "\n\t\tAwesome!" << endl << endl;
+        // Clear Screen
+        clearScreen();
+
+        // Ask for radius
+        cout << "What is the radius of the circle? ";
+        radius = inputVal(radius);
 
         // Calculate and display
         radSquare = (radius * radius);
         area = PI * (radius * radius);
-        cout << "When finding the area of a circle, \n"
-             << "the radius must be squared and then\n"
-             << "multiplied by PI(3.14). " << endl;
-        cout << "\nSo, " << radius << " x " << radius << " = " << radSquare << endl
-             << "and " << radSquare << " x " << PI << " = " << area << "." << endl
-             << "The area of the circle is "<< area << endl;
-        // Space before return 0
-        cout << '\n' << endl;
 
-        cout << "Would you like to calculate the area "
-             << "of another circle?\n"
-             << "1. Yes\n"
-             << "0. Return to main menu ";
+        // Explain how to solve for area 
+        cout << "\nSquaring the radius and then multiplying" << endl
+             << "it's sum by PI determines the area of a circle.\n" << endl;
+
+        // Ask to press enter to proceed
+        cout << "Type [ENTER] to continue: " << endl;
+        // Clear previous input
+        cin.clear();
+        cin.ignore(123, '\n');
+        cin.get();
+
+        // Display area of circle
+        cout << "The area of the circle is: " << area << endl << endl;
+
+        // Ask if would like to make another calculation
+        cout << "\nWould you like to make another calculation?\n"
+             << "1. Yes.\n"
+             << "0. No. Return to main menu ";
         anotherCal = inputVal(anotherCal);
+        cout << endl;
+
+    // End of Another problem? do while loop
     } while(anotherCal == true);
 
+    // Return boolean value either to
+    // main menu or another problem.
     return anotherCal;
 }
 
@@ -569,40 +712,44 @@ bool calculateAreaOfTriangle()
         // Variables: Hold length, width, and area.
         double area, height, base;
 
-        // Explain program, then get length
-        cout << "This program calculates the area "
-             << "of a triangle." << endl;
-        cout << "Let's start off with the height.\n"
-             << "What is the height of the triangle? ";
-        cin >> height;
+        clearScreen();        // Explain program, then get length
+        cout << "What is the height of the triangle? ";
+        height = inputVal(height);
 
         // Get width
-        cout << "Ok, what is the length of the base of our triangle? ";
-        cin >> base;
+        cout << "What is the base? ";
+        base = inputVal(base);
+
 
         // Calculate and display
         area = (height * base) / 2;
-        cout << "The area of a triangle "
-             << "whose height is " << height
-             << "\nand whose base is " << base
-             << "\nis " << area << endl;
-        cout << "To figure this out, " << endl
-             << "we must multiply the base(" <<
-             base << ") by the height(" <<
-             height << ") " << endl
-             << "and divide their sum by 2. " << endl;
+        // Explain how to solve for area
+        cout << "\nMultiplying the base by the height and dividing\n"
+             << "their sum by 2 determines the area of a triangle.\n"  << endl;
 
-        // Space before return 0
-        cout << '\n' << endl;
+        // Ask to press enter to proceed
+        cout << "Type [ENTER] to continue: " << endl;
+        // Clear previous input
+        cin.clear();
+        cin.ignore(123, '\n');
+        cin.get();
 
-        cout << "Would you like to calculate the area "
-             << "of another triangle?\n"
-             << "1. Yes\n"
-             << "0. Return to main menu ";
+        // Dipslay area
+        cout << "The area of the triangle is " << area << endl << endl;
+
+        // Ask if would like to make another calculation
+        cout << "\nWould you like to make another calculation?\n"
+             << "1. Yes.\n"
+             << "0. No. Return to main menu ";
+        // Error check anotherCal
         anotherCal = inputVal(anotherCal);
+        cout << endl;
 
+    // End of Another problem? do while loop
     } while(anotherCal == true);
 
+    // Return boolean value either to
+    // main menu or another problem.
     return anotherCal;
 }
 
@@ -615,7 +762,30 @@ void clearScreen()
 system(clearVar);
 }
 
+//***************************************************************
+// Function inputVal (int) check for valid input.               *
+// If the user types in anything other than the int data type,  *
+// they will be promted to enter the valid input.               *
+//***************************************************************
+
 int inputVal(int num)
+{
+    while (!(cin >> num))
+    {
+        cout << "\n\tI'm sorry a whole number must be entered: ";
+        cin.clear();
+        cin.ignore(123, '\n');
+    }
+    return num;
+}
+
+//***************************************************************
+// Function inputVal (double) check for valid input.            *
+// If the user types in anything other than double data type,   *
+// they will be promted to enter the valid data type.           *
+//***************************************************************
+
+double inputVal(double num)
 {
     while (!(cin >> num))
     {
