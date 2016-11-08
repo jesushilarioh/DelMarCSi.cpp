@@ -146,6 +146,7 @@ int main()
     // End program valediction
     cout << "Ending Program...\n";
     cout << "Program ended." << endl << endl;
+
     return 0;
 }
 
@@ -204,6 +205,11 @@ int menu(int num)
 
 bool additionPractice()
 {
+    // File object
+    ofstream outputFile;
+    // Open outputFile
+    outputFile.open("MathTutorRecord.txt");
+
     //Varable
     bool anotherProb;
 
@@ -291,6 +297,9 @@ bool additionPractice()
         // End Process answeer Do While
         } while (answer != sum);
 
+        // Write to outputFile
+        outputFile << num1 << " + " << num2 << " = " << sum << endl;
+
         // Ask if would like another problem
         cout << "\nWould you like another addition problem?\n"
              << "1. Yes.\n"
@@ -306,6 +315,9 @@ bool additionPractice()
     // End of Another problem? Do While
     } while (anotherProb == true);
 
+    // Close outputfile
+    outputFile.close();
+
     // Return boolean value either to
     // main menu or another problem.
     return anotherProb;
@@ -318,6 +330,11 @@ bool additionPractice()
 
 bool subtractionPractice()
 {
+    // Output file stream object
+    ofstream outputFile;
+    // Open outputFile
+    outputFile.open("MathTutorRecord.txt");
+
     // Variable
     bool anotherProb;
 
@@ -406,8 +423,11 @@ bool subtractionPractice()
         // End Process answeer Do While
         } while (answer != sum);
 
+        // Write data to outputFile
+        outputFile << num1 << " - " << num2 << " = "<< sum << endl;
+
         // Ask if would like another problem
-        cout << "\nWould you like another addition problem?\n"
+        cout << "\nWould you like another subtraction problem?\n"
              << "1. Yes.\n"
              << "0. No. Return to main menu ";
         // Error check
@@ -416,6 +436,9 @@ bool subtractionPractice()
 
     // End of Another problem? Do While
     } while (anotherProb == true);
+
+    // Close outputFile
+    outputFile.close();
 
     // Return boolean value either to
     // main menu or another problem.
@@ -430,6 +453,11 @@ bool subtractionPractice()
 
 bool multiplicationPractice()
 {
+    // Output stream object
+    ofstream outputFile;
+    // Open file
+    outputFile.open("MathTutorRecord.txt");
+
     // Variable
     bool anotherProb;
 
@@ -491,8 +519,11 @@ bool multiplicationPractice()
         // End of Processing answer.
         } while (answer != sum);
 
+        // Write data to outputFile
+        outputFile << num1 << " x " << num2 << " = " << sum << endl;
+
         // Ask if would like another problem
-        cout << "\nWould you like another addition problem?\n"
+        cout << "\nWould you like another multiplication problem?\n"
              << "1. Yes.\n"
              << "0. No. Return to main menu ";
         // Error check anotherProb
@@ -501,6 +532,9 @@ bool multiplicationPractice()
 
     // End of Another problem? Do While
     } while(anotherProb == true);
+
+    // Close outputFile
+    outputFile.close();
 
     // Return boolean value either to
     // main menu or another problem.
@@ -514,6 +548,11 @@ bool multiplicationPractice()
 
 bool divisionPractice()
 {
+    // Output stream object
+    ofstream outputFile;
+    // Open file
+    outputFile.open("MathTutorRecord.txt");
+
     // Variable
     bool anotherProb;
 
@@ -557,6 +596,9 @@ bool divisionPractice()
              << ", \n\t" << "I will get " << sum << " with a remainder of "
              << remain << endl;
 
+        // Write data to file
+        outputFile << num1 << " / " << num2 << " = " << sum << " remainder " << remain << endl;
+
         // Ask to press enter to continue
         cout << "\nPress [ENTER] twice to continue: ";
         // Clear previous input
@@ -570,11 +612,13 @@ bool divisionPractice()
              << "0. No. Return to main menu ";
         // Error check anotherProb input
         anotherProb = inputVal(anotherProb);
-
         cout << endl;
 
     // End of Another Problem? do while loop
     } while(anotherProb == true);
+
+    // Close outputFile
+    outputFile.close();
 
     // Return boolean value either to
     // main menu or another problem.
@@ -589,6 +633,11 @@ bool divisionPractice()
 
 bool calculateAreaOfRectangle()
 {
+    // Output stream object
+    ofstream outputFile;
+    // Open file
+    outputFile.open("MathTutorRecord.txt");
+
     // Variable
     bool anotherCal;
 
@@ -623,6 +672,9 @@ bool calculateAreaOfRectangle()
         // Discribe how to solve the problem
         cout << "\nThe area of the rectangle is " << area << endl << endl;
 
+        // Write data to file
+        outputFile << "The area of the rectangle is " << area << endl;
+
         // Ask if would like another problem.
         cout << "\nWould you like to make another calculation?\n"
              << "1. Yes.\n"
@@ -633,6 +685,9 @@ bool calculateAreaOfRectangle()
 
     // End of Another probelm? do while loop
     } while(anotherCal == true);
+
+    // CLose outputFile
+    outputFile.close();
 
     // Return boolean value either to
     // main menu or another problem.
@@ -647,6 +702,11 @@ bool calculateAreaOfRectangle()
 
 bool calculateAreaOfCircle()
 {
+    // Output stream object
+    ofstream outputFile;
+    // Open file
+    outputFile.open("MathTutorRecord.txt");
+
     // Variable
     bool anotherCal;
 
@@ -668,7 +728,7 @@ bool calculateAreaOfCircle()
         radSquare = (radius * radius);
         area = PI * (radius * radius);
 
-        // Explain how to solve for area 
+        // Explain how to solve for area
         cout << "\nSquaring the radius and then multiplying" << endl
              << "it's sum by PI determines the area of a circle.\n" << endl;
 
@@ -682,6 +742,9 @@ bool calculateAreaOfCircle()
         // Display area of circle
         cout << "The area of the circle is: " << area << endl << endl;
 
+        // Write data to file
+        outputFile << "The area of the circle is: " << area << endl;
+
         // Ask if would like to make another calculation
         cout << "\nWould you like to make another calculation?\n"
              << "1. Yes.\n"
@@ -691,6 +754,9 @@ bool calculateAreaOfCircle()
 
     // End of Another problem? do while loop
     } while(anotherCal == true);
+
+    // Close outputFile
+    outputFile.close();
 
     // Return boolean value either to
     // main menu or another problem.
@@ -705,8 +771,15 @@ bool calculateAreaOfCircle()
 
 bool calculateAreaOfTriangle()
 {
+    // Output stream object
+    ofstream outputFile;
+    // Open file
+    outputFile.open("MathTutorRecord.txt");
+
+    // Variable
     bool anotherCal;
 
+    // Another Problem? Do while loop
     do
     {
         // Variables: Hold length, width, and area.
@@ -737,6 +810,9 @@ bool calculateAreaOfTriangle()
         // Dipslay area
         cout << "The area of the triangle is " << area << endl << endl;
 
+        // Write data to a file
+        outputFile << "The area of the triangle is " << area << endl;
+
         // Ask if would like to make another calculation
         cout << "\nWould you like to make another calculation?\n"
              << "1. Yes.\n"
@@ -747,6 +823,9 @@ bool calculateAreaOfTriangle()
 
     // End of Another problem? do while loop
     } while(anotherCal == true);
+
+    // Close outputFile
+    outputFile.close();
 
     // Return boolean value either to
     // main menu or another problem.
