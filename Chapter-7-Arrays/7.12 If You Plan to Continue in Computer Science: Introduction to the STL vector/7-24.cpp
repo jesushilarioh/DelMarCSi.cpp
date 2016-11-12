@@ -35,9 +35,9 @@ int main()
     cout << fixed << showpoint << setprecision(2);
     for (int index = 0; index < NUM_EMPLOYEES; index++)
     {
-        double grossPay = hours[index] * payRate[index];
+        double grossPay = hours[index] * payRate[index]; 
         cout << "Employee #" << (index + 1);
-        cout << ": $" << grossPay << endl;
+        cout << ": $" << grossPay << endl; 
     }
     return 0;
 }
