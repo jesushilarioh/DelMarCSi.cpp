@@ -6,7 +6,7 @@
 // Last Updated: November 11th, 2016
 //**************************************************************
 #include <iostream>
-#include <vector>   // Needed to defice vectors
+#include <vector>   // Needed to define vectors
 #include <iomanip>
 using namespace std;
 
