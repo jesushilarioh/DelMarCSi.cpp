@@ -10,7 +10,12 @@
 using namespace std;
 
 // Function prototype
-void showValues(vector<int>);
+void showValues(vector<int>);   //***********************************************
+                                // NOTE: because the vector report its size, the*
+                                // showValues function does not need to accept a*
+                                // second argument indicating the number of     *
+                                // elements in the vector.                      *
+                                //***********************************************
 
 int main()
 {
