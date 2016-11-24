@@ -49,10 +49,8 @@ int main()
 
             case 2:
             {
-
-            cout << "You have chosen romance as your genre." << endl;
-            Romance();
-
+                cout << "You have chosen romance as your genre." << endl;
+                Romance();
             }
             break;
 

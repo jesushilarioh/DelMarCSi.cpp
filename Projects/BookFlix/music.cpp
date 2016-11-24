@@ -9,6 +9,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 
 // Directives for clearing the screen
@@ -31,47 +32,60 @@ void clearScreen();
 int main()
 {
     // Input Stream Objects
-    ifstream inputAuthors,     // For Authors.txt
-             inputBooks,       // For Books.txt
-             inputDates;       // For Date.txt
+    ifstream inputAuthors,      // For Authors.txt
+             inputBooks,        // For Books.txt
+             inputDates,        // For Date.txt
+             inputDiscription;  // For Discription.txt
 
     // Output Stream Objects
-    ofstream keptBooks;    // Output Stream Object
+    ofstream keptBooks;         // Output Stream Object
 
     // Constants
-    const int SIZE = 3,
-              SELECT_BOOK_1 = 0,
-              SELECT_BOOK_2 = 1,
-              SELECT_BOOK_3 = 2;
+    const int SIZE = 10,
+              SELECT_BOOK_1  = 0,
+              SELECT_BOOK_2  = 1,
+              SELECT_BOOK_3  = 2,
+              SELECT_BOOK_4  = 3,
+              SELECT_BOOK_5  = 4,
+              SELECT_BOOK_6  = 5,
+              SELECT_BOOK_7  = 6,
+              SELECT_BOOK_8  = 7,
+              SELECT_BOOK_9  = 8,
+              SELECT_BOOK_10 = 9;
 
     // Variables
-    string author[SIZE],    // Holds author names
-           book[SIZE],      // Holds book names
-           date[SIZE];      // Holds book dates
-    int selectBook;
-    char keepBook, anotherSelection;
+    string author[SIZE],        // Holds author names
+           book[SIZE],          // Holds book names
+           date[SIZE],          // Holds book dates
+           discription[SIZE];   // Holds book discriptions
 
-    // Selecting Books from a list
-    do                                                              // main Do While Loop
+    int selectBook;             // Holds book selection
+    char keepBook,              // Holds Y or N
+         anotherSelection;      // Holds Y or N to return to music menu or not
+
+    // Select Book from a list
+    do
     {
         // Open input files
         inputAuthors.open("Authors.txt");
         inputBooks.open("Books.txt");
         inputDates.open("Date.txt");
+        inputDiscription.open("Discriptions.txt");
 
         clearScreen();
         // Display list of music books
         cout << "Here are the available music books: \n" << endl;
-        // Receive contents of each array from a file
+        // Fill arrays with external file data and display contents
         for (int count = 0; count < SIZE; count++)
         {
             getline(inputAuthors, author[count]);
             getline(inputBooks, book[count]);
             getline(inputDates, date[count]);
-            cout << '\t' << (count + 1) << ". "
-                 << author[count] << ", " << endl
-                 << "\t\t" << book[count] << ", " << endl
-                 << "\t\t" << date[count] << endl << endl;
+            getline(inputDiscription, discription[count]);
+            cout << '\t'   << (count + 1)   << ". "
+                           << book[count]   << ", " << endl
+                 << "\t\t" << author[count] << ", " << endl
+                 << "\t\t" << date[count]   << endl << endl;
         }
 
         cout << "Select a book: ";
@@ -81,14 +95,16 @@ int main()
         {
             case (SELECT_BOOK_1 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_1] << ", by "
-                     << author[SELECT_BOOK_1] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_1] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_1] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_1]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
                 cin >> keepBook;
+
                 break;
             case (SELECT_BOOK_2 + 1):
                 clearScreen();
@@ -112,6 +128,83 @@ int main()
                 cout << " (Y/N)";
                 cin >> keepBook;
                 break;
+            case (SELECT_BOOK_4 + 1):
+                clearScreen();
+                cout << "\nYou've selected:" << endl
+                     << book[SELECT_BOOK_4] << ", by "
+                     << author[SELECT_BOOK_4] << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                break;
+            case (SELECT_BOOK_5 + 1):
+                clearScreen();
+                cout << "\nYou've selected:" << endl
+                     << book[SELECT_BOOK_5] << ", by "
+                     << author[SELECT_BOOK_5] << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                break;
+            case (SELECT_BOOK_6 + 1):
+                clearScreen();
+                cout << "\nYou've selected:" << endl
+                     << book[SELECT_BOOK_6] << ", by "
+                     << author[SELECT_BOOK_6] << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                break;
+            case (SELECT_BOOK_7 + 1):
+                clearScreen();
+                cout << "\nYou've selected:" << endl
+                     << book[SELECT_BOOK_7] << ", by "
+                     << author[SELECT_BOOK_7] << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                break;
+            case (SELECT_BOOK_8 + 1):
+                clearScreen();
+                cout << "\nYou've selected:" << endl
+                     << book[SELECT_BOOK_8] << ", by "
+                     << author[SELECT_BOOK_8] << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                break;
+            case (SELECT_BOOK_9 + 1):
+                clearScreen();
+                cout << "\nYou've selected:" << endl
+                     << book[SELECT_BOOK_9] << ", by "
+                     << author[SELECT_BOOK_9] << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                break;
+            case (SELECT_BOOK_10 + 1):
+                clearScreen();
+                cout << "\nYou've selected:" << endl
+                     << book[SELECT_BOOK_10] << ", by "
+                     << author[SELECT_BOOK_10] << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                break;
             default:
                 cout << "NO WORK." << endl;
         }
@@ -119,25 +212,26 @@ int main()
         // If no. Say ok.
         if (keepBook == 'N' || keepBook == 'n')
         {
-            cout << "Ok." << endl;
+            cout << "Ok.\n" << endl;
         }
         // If yes. Say awesome!
         else if (keepBook == 'y' || keepBook == 'Y')
         {
-            cout << "Awesome!\n";
+            cout << "Awesome!\n" << endl;
         }
 
         // Ask if would like to make another music selection
         cout << "Would you like to make another music genre selection?";
         cin >> anotherSelection;
 
-    } while(anotherSelection == 'y' || anotherSelection == 'Y');        // End main Do While loop
+    } while(anotherSelection == 'y' || anotherSelection == 'Y');// End Do While
 
 
     // Close inputFiles
     inputAuthors.close();
     inputBooks.close();
     inputDates.close();
+    inputDiscription.close();
 
     return 0;
 }
