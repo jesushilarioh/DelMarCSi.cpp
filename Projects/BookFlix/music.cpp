@@ -63,14 +63,17 @@ int main()
     char keepBook,              // Holds Y or N
          anotherSelection;      // Holds Y or N to return to music menu or not
 
+    // Open input/ouput files
+    inputAuthors.open("Authors.txt");
+    inputBooks.open("Books.txt");
+    inputDates.open("Date.txt");
+    inputDiscription.open("Discriptions.txt");
+    keptBooks.open("RememberedBooks.txt", ios::out | ios::app);
+
+
     // Select Book from a list
     do
     {
-        // Open input files
-        inputAuthors.open("Authors.txt");
-        inputBooks.open("Books.txt");
-        inputDates.open("Date.txt");
-        inputDiscription.open("Discriptions.txt");
 
         clearScreen();
         // Display list of music books
@@ -82,12 +85,17 @@ int main()
             getline(inputBooks, book[count]);
             getline(inputDates, date[count]);
             getline(inputDiscription, discription[count]);
-            cout << '\t'   << (count + 1)   << ". "
-                           << book[count]   << ", " << endl
-                 << "\t\t" << author[count] << ", " << endl
-                 << "\t\t" << date[count]   << endl << endl;
+            cout << '\t' << (count + 1) << ". "
+                         << book[count] << ", " << endl;
         }
 
+        // Close inputFiles
+        inputAuthors.close();
+        inputBooks.close();
+        inputDates.close();
+        inputDiscription.close();
+
+        // Ask your to select a book
         cout << "Select a book: ";
         cin >> selectBook;
 
@@ -108,9 +116,10 @@ int main()
                 break;
             case (SELECT_BOOK_2 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_2] << ", by "
-                     << author[SELECT_BOOK_2] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_2] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_2] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_2]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -119,9 +128,10 @@ int main()
                 break;
             case (SELECT_BOOK_3 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_3] << ", by "
-                     << author[SELECT_BOOK_3] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_3] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_3] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_3]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -130,9 +140,10 @@ int main()
                 break;
             case (SELECT_BOOK_4 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_4] << ", by "
-                     << author[SELECT_BOOK_4] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_4] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_4] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_4]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -141,9 +152,10 @@ int main()
                 break;
             case (SELECT_BOOK_5 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_5] << ", by "
-                     << author[SELECT_BOOK_5] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_5] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_5] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_5]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -152,9 +164,10 @@ int main()
                 break;
             case (SELECT_BOOK_6 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_6] << ", by "
-                     << author[SELECT_BOOK_6] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_6] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_6] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_6]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -163,9 +176,10 @@ int main()
                 break;
             case (SELECT_BOOK_7 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_7] << ", by "
-                     << author[SELECT_BOOK_7] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_7] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_7] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_7]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -174,9 +188,10 @@ int main()
                 break;
             case (SELECT_BOOK_8 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_8] << ", by "
-                     << author[SELECT_BOOK_8] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_8] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_8] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_8]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -185,9 +200,10 @@ int main()
                 break;
             case (SELECT_BOOK_9 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_9] << ", by "
-                     << author[SELECT_BOOK_9] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_9] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_9] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_9]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -196,9 +212,10 @@ int main()
                 break;
             case (SELECT_BOOK_10 + 1):
                 clearScreen();
-                cout << "\nYou've selected:" << endl
-                     << book[SELECT_BOOK_10] << ", by "
-                     << author[SELECT_BOOK_10] << endl;
+                cout << "\nYou've selected:"                << endl
+                     << '\t'    << book[SELECT_BOOK_10] << ", by "  << endl
+                     << "\t\t"  << author[SELECT_BOOK_10] << endl << endl
+                     << "    "  << discription[SELECT_BOOK_10]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -218,6 +235,10 @@ int main()
         else if (keepBook == 'y' || keepBook == 'Y')
         {
             cout << "Awesome!\n" << endl;
+            // Write to output file books kept by user
+            keptBooks << book[selectBook - 1] << ", "
+                      << author[selectBook -1] << ", "
+                      << date [selectBook -1] << endl;
         }
 
         // Ask if would like to make another music selection
@@ -226,13 +247,8 @@ int main()
 
     } while(anotherSelection == 'y' || anotherSelection == 'Y');// End Do While
 
-
-    // Close inputFiles
-    inputAuthors.close();
-    inputBooks.close();
-    inputDates.close();
-    inputDiscription.close();
-
+    //Close output File
+    keptBooks.close();
     return 0;
 }
 
