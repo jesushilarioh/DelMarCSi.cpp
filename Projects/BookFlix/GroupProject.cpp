@@ -20,8 +20,6 @@ char buffer[6] = "clear";
 const char* clearVar = buffer;
 #endif
 
-
-
 //Function Prototypes
 void Romance();             // Romance Genre
 void RomanceDes();          // Romance Discriptions
@@ -37,13 +35,13 @@ int main()
     int menu_choice;    // Holds Menu Choice
     char repeat_menu;   // To Re-display the menu_choice
 
-        // Clear Screen
-        clearScreen();
-        cout << "This program allows you to find a book you would like to read\n";
-        cout << "based on which genre you would prefer to read." << endl;
+    // Clear Screen
+    clearScreen();
+    cout << "This program allows you to find a book you would like to read\n";
+    cout << "based on which genre you would prefer to read." << endl;
 
-        do
-        {
+    do
+    {
 
         cout << "\nChoose a genre from the list below\n" << endl;
         cout << "\n1. Music " << endl;
@@ -64,42 +62,43 @@ int main()
         }
 
         switch (menu_choice)
-            {
+        {
 
-            // 1. Music Genre
+                // 1. Music Genre
             case 1:
                 Music();
                 break;
 
-            // 2. Romance Genre
+                // 2. Romance Genre
             case 2:
                 cout << "You have chosen romance as your genre." << endl;
                 Romance();
                 break;
 
-            // 3. Adventure Genre
+                // 3. Adventure Genre
             case 3:
                 Adventure();
                 break;
 
-            // 4. Mystery Genre
+                // 4. Mystery Genre
             case 4:
                 Mystery();
                 break;
 
             default:
-            break;
+                break;
 
-            }
+        }
 
-            cout << "\nWould you like to return to the main menu? (Y/N)" << endl;
+        // Clear Screen
+        cout << "\nWould you like to return to the main menu? (Y/N)" << endl;
 
-            cin >> repeat_menu;
+        cin >> repeat_menu;
 
-        } while (repeat_menu == 'Y' || repeat_menu == 'y');
+    } while (repeat_menu == 'Y' || repeat_menu == 'y');
 
-        cout << "\nHave a nice day!" << endl;
-return 0;
+    cout << "\nHave a nice day!" << endl;
+    return 0;
 }
 
 //***************************************************
@@ -109,19 +108,19 @@ return 0;
 char errorCheckYorN(char letter)
 {
     while (!(letter == 'y' || letter == 'Y' || letter == 'n' || letter == 'N'))
-        {
-            // Explain error
-            cout << "ERROR: you must choose either Y or N." << endl
-                 << "Y for Yes or\n"
-                 << "N for No...";
-            // Clear input stream
-            cin.clear();
-            // Discard previous input
-            cin.ignore(123, '\n');
-            // Receive input again
-            cin >> letter;
-        }
-        return letter;
+    {
+        // Explain error
+        cout << "ERROR: you must choose either Y or N." << endl
+        << "Y for Yes or\n"
+        << "N for No...";
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(123, '\n');
+        // Receive input again
+        cin >> letter;
+    }
+    return letter;
 }
 
 //***************************************************
@@ -167,11 +166,11 @@ void Romance()
     }
     else
     {
-    cout << "File could not be opened." << endl;
+        cout << "File could not be opened." << endl;
     }
-file.close();
+    file.close();
 
-RomanceDes();
+    RomanceDes();
 }
 
 //***************************************************
@@ -182,17 +181,17 @@ void RomanceDes()
 {
     char repeat_romancemenu;
     int menu_romancechoice;
-     do
+    do
+    {
+        cout << endl << "Chose a book to read the description" << endl << endl;
+
+        cin >> menu_romancechoice;
+        cout << endl;
+
+        switch(menu_romancechoice)
         {
-            cout << endl << "Chose a book to read the description" << endl << endl;
-
-            cin >> menu_romancechoice;
-            cout << endl;
-
-            switch(menu_romancechoice)
-            {
             case 1:
-                {
+            {
                 cout << "Would you risk it all to change your destiny?" << endl << endl;
 
                 cout << "The last thing Kelsey Hayes thought she'd be doing" << endl
@@ -210,10 +209,10 @@ void RomanceDes()
                 << "the epic Tiger's Curse series will keep you breathless" << endl
                 << "and yearning for more." << endl;
 
-                }
+            }
                 break;
             case 2:
-                {
+            {
                 cout << "Back in Oregon, Kelsey tries to pick up the pieces of her life" << endl
                 << "and push aside her feelings for Ren." << endl
                 << "Kelsey Hayes's eighteenth summer was crazy." << endl
@@ -228,10 +227,10 @@ void RomanceDes()
                 << "the unlikely duo begins to question their true destiny." << endl
                 << "Ren's life hangs in the balance--so does the truth within Kelsey's heart." << endl;
 
-                }
+            }
                 break;
             case 3:
-                {
+            {
                 cout << "Galen, a Syrena prince, searches land for a girl he's heard can communicate with fish." << endl
                 << "It's while Emma is on vacation at the beach that she meets Galen." << endl
                 << "Although their connection is immediate and powerful," << endl
@@ -240,10 +239,10 @@ void RomanceDes()
                 << "and her Gift may be the only thing that can save his kingdom." << endl
                 << "He needs her help�no matter what the risk." << endl;
 
-                }
+            }
                 break;
             case 4:
-                {
+            {
                 cout << "Emma has just learned that her mother is a long-lost Poseidon princess," << endl
                 << "and now struggles with an identity crisis:" << endl
                 << "As a Half-Breed, she's a freak in the human world and an abomination" <<endl
@@ -256,20 +255,20 @@ void RomanceDes()
                 << "just hope for the best? Or should she risk it all and reveal herself�and" << endl
                 << "her Gift�to save a people she's never known?" << endl;
 
-                }
+            }
                 break;
             default:
-                {
-                    cout << "Invalid answer. Please try again." << endl;
-                }
+            {
+                cout << "Invalid answer. Please try again." << endl;
+            }
                 break;
 
-            }
-            cout << endl << "Would you like to return to the Romance menu? (Y/N)" << endl;
-
-            cin >> repeat_romancemenu;
         }
-            while (repeat_romancemenu == 'Y' || repeat_romancemenu == 'y');
+        cout << endl << "Would you like to return to the Romance menu? (Y/N)" << endl;
+
+        cin >> repeat_romancemenu;
+    }
+    while (repeat_romancemenu == 'Y' || repeat_romancemenu == 'y');
 }
 
 
@@ -297,10 +296,10 @@ void Adventure()
 
     inFile.open ("AdventureBooksRegean.csv");       //open the file
 
-         if (inFile.fail())             //if file did not open
-        {
-            cout << "Error! Could not open file." << endl;
-        }
+    if (inFile.fail())             //if file did not open
+    {
+        cout << "Error! Could not open file." << endl;
+    }
     if (inFile)
     {
 
@@ -358,10 +357,10 @@ void Mystery()
 
     inFile.open ("MysteryBooksRegean.csv");       //open the file
 
-         if (inFile.fail())             //if file did not open
-        {
-            cout << "Error! Could not open file." << endl;
-        }
+    if (inFile.fail())             //if file did not open
+    {
+        cout << "Error! Could not open file." << endl;
+    }
     if (inFile)
     {
 
@@ -408,35 +407,35 @@ void Music()
 {
     // Input Stream Objects
     ifstream inputAuthors,      // For Authors.txt
-             inputBooks,        // For Books.txt
-             inputDates,        // For Date.txt
-             inputDiscription;  // For Discription.txt
+    inputBooks,        // For Books.txt
+    inputDates,        // For Date.txt
+    inputDiscription;  // For Discription.txt
 
     // Output Stream Objects
     ofstream keptBooks;         // Output Stream Object
 
     // Constants
     const int SIZE = 10,
-              SELECT_BOOK_1  = 0,
-              SELECT_BOOK_2  = 1,
-              SELECT_BOOK_3  = 2,
-              SELECT_BOOK_4  = 3,
-              SELECT_BOOK_5  = 4,
-              SELECT_BOOK_6  = 5,
-              SELECT_BOOK_7  = 6,
-              SELECT_BOOK_8  = 7,
-              SELECT_BOOK_9  = 8,
-              SELECT_BOOK_10 = 9;
+    SELECT_BOOK_1  = 0,
+    SELECT_BOOK_2  = 1,
+    SELECT_BOOK_3  = 2,
+    SELECT_BOOK_4  = 3,
+    SELECT_BOOK_5  = 4,
+    SELECT_BOOK_6  = 5,
+    SELECT_BOOK_7  = 6,
+    SELECT_BOOK_8  = 7,
+    SELECT_BOOK_9  = 8,
+    SELECT_BOOK_10 = 9;
 
     // Variables
     string author[SIZE],        // Holds author names
-           book[SIZE],          // Holds book names
-           date[SIZE],          // Holds book dates
-           discription[SIZE];   // Holds book discriptions
+    book[SIZE],          // Holds book names
+    date[SIZE],          // Holds book dates
+    discription[SIZE];   // Holds book discriptions
 
     int selectBook;             // Holds book selection
     char keepBook,              // Holds Y or N
-         anotherSelection;      // Holds Y or N to return to music menu or not
+    anotherSelection;      // Holds Y or N to return to music menu or not
 
     // Open input/ouput files
     inputAuthors.open("Authors.txt");
@@ -461,7 +460,7 @@ void Music()
             getline(inputDates, date[count]);
             getline(inputDiscription, discription[count]);
             cout << '\t' << (count + 1) << ". "
-                         << book[count] << ", " << endl;
+            << book[count] << ", " << endl;
         }
 
         // Close inputFiles
@@ -490,9 +489,9 @@ void Music()
             case (SELECT_BOOK_1 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_1] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_1] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_1]    << endl;
+                << '\t'    << book[SELECT_BOOK_1] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_1] << endl << endl
+                << "    "  << discription[SELECT_BOOK_1]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -505,9 +504,9 @@ void Music()
             case (SELECT_BOOK_2 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_2] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_2] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_2]    << endl;
+                << '\t'    << book[SELECT_BOOK_2] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_2] << endl << endl
+                << "    "  << discription[SELECT_BOOK_2]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -520,9 +519,9 @@ void Music()
             case (SELECT_BOOK_3 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_3] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_3] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_3]    << endl;
+                << '\t'    << book[SELECT_BOOK_3] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_3] << endl << endl
+                << "    "  << discription[SELECT_BOOK_3]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -535,9 +534,9 @@ void Music()
             case (SELECT_BOOK_4 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_4] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_4] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_4]    << endl;
+                << '\t'    << book[SELECT_BOOK_4] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_4] << endl << endl
+                << "    "  << discription[SELECT_BOOK_4]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -550,9 +549,9 @@ void Music()
             case (SELECT_BOOK_5 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_5] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_5] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_5]    << endl;
+                << '\t'    << book[SELECT_BOOK_5] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_5] << endl << endl
+                << "    "  << discription[SELECT_BOOK_5]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -565,9 +564,9 @@ void Music()
             case (SELECT_BOOK_6 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_6] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_6] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_6]    << endl;
+                << '\t'    << book[SELECT_BOOK_6] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_6] << endl << endl
+                << "    "  << discription[SELECT_BOOK_6]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -580,9 +579,9 @@ void Music()
             case (SELECT_BOOK_7 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_7] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_7] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_7]    << endl;
+                << '\t'    << book[SELECT_BOOK_7] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_7] << endl << endl
+                << "    "  << discription[SELECT_BOOK_7]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -595,9 +594,9 @@ void Music()
             case (SELECT_BOOK_8 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_8] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_8] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_8]    << endl;
+                << '\t'    << book[SELECT_BOOK_8] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_8] << endl << endl
+                << "    "  << discription[SELECT_BOOK_8]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -610,9 +609,9 @@ void Music()
             case (SELECT_BOOK_9 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_9] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_9] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_9]    << endl;
+                << '\t'    << book[SELECT_BOOK_9] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_9] << endl << endl
+                << "    "  << discription[SELECT_BOOK_9]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -625,9 +624,9 @@ void Music()
             case (SELECT_BOOK_10 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
-                     << '\t'    << book[SELECT_BOOK_10] << ", by "  << endl
-                     << "\t\t"  << author[SELECT_BOOK_10] << endl << endl
-                     << "    "  << discription[SELECT_BOOK_10]    << endl;
+                << '\t'    << book[SELECT_BOOK_10] << ", by "  << endl
+                << "\t\t"  << author[SELECT_BOOK_10] << endl << endl
+                << "    "  << discription[SELECT_BOOK_10]    << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -652,13 +651,17 @@ void Music()
             cout << "Awesome!\n" << endl;
             // Write to output file books kept by user
             keptBooks << book[selectBook - 1] << ", "
-                      << author[selectBook -1] << ", "
-                      << date [selectBook -1] << endl;
+            << author[selectBook -1] << ", "
+            << date [selectBook -1] << endl;
         }
+
+        // Clear screen
+        clearScreen();
 
         // Ask if would like to make another music selection
         cout << "Would you like to make another "
-             << "music genre selection? (Y/N)";
+        << "music genre selection? (Y/N)";
+        cin >> anotherSelection;
         anotherSelection = errorCheckYorN(anotherSelection);
 
     } while(anotherSelection == 'y' || anotherSelection == 'Y');// End Do While
