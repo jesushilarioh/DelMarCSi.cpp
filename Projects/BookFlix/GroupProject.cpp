@@ -37,13 +37,24 @@ int main()
 
     // Clear Screen
     clearScreen();
-    cout << "This program allows you to find a book you would like to read\n";
-    cout << "based on which genre you would prefer to read." << endl;
-
     do
     {
+        cout <<  "#     #                                                            "<< endl
+             <<  "#  #  # ###### #       ####   ####  #    # ######    #####  ####   "<< endl
+             <<  "#  #  # #      #      #    # #    # ##  ## #           #   #    #  "<< endl
+             <<  "#  #  # #####  #      #      #    # # ## # #####       #   #    #  "<< endl
+             <<  "#  #  # #      #      #      #    # #    # #           #   #    #  "<< endl
+             <<  "#  #  # #      #      #    # #    # #    # #           #   #    #  "<< endl
+             <<  " ## ##  ###### ######  ####   ####  #    # ######      #    ####   "<< endl
+             <<  "######                       #######                               "<< endl
+             <<  "#     #  ####   ####  #    # #       #      # #    #               "<< endl
+             <<  "#     # #    # #    # #   #  #       #      #  #  #                "<< endl
+             <<  "######  #    # #    # ####   #####   #      #   ##                 "<< endl
+             <<  "#     # #    # #    # #  #   #       #      #   ##                 "<< endl
+             <<  "#     # #    # #    # #   #  #       #      #  #  #                "<< endl
+             <<  "######   ####   ####  #    # #       ###### # #    #               "<< endl;
 
-        cout << "\nChoose a genre from the list below\n" << endl;
+        cout << "\nChoose a genre to begin" << endl;
         cout << "\n1. Music " << endl;
         cout << "\n2. Romance" << endl;
         cout << "\n3. Adventure" << endl;
@@ -71,7 +82,6 @@ int main()
 
                 // 2. Romance Genre
             case 2:
-                cout << "You have chosen romance as your genre." << endl;
                 Romance();
                 break;
 
@@ -151,11 +161,21 @@ void Romance()
 
     do
     {
-        // Open input file.
-        file.open("RomanceBooksAshley.txt");
 
         // Clear the screen
         clearScreen();
+
+        cout <<   "######                                            "<< endl
+             <<   "#     #  ####  #    #   ##   #    #  ####  ###### "<< endl
+             <<   "#     # #    # ##  ##  #  #  ##   # #    # #      "<< endl
+             <<   "######  #    # # ## # #    # # #  # #      #####  "<< endl
+             <<   "#   #   #    # #    # ###### #  # # #      #      "<< endl
+             <<   "#    #  #    # #    # #    # #   ## #    # #      "<< endl
+             <<   "#     #  ####  #    # #    # #    #  ####  ###### ";
+
+        // Open input file.
+        file.open("RomanceBooksAshley.txt");
+
         // Display book selection
         cout << "\n\n" << endl;
         cout << " Author             Title               Date" << endl << endl;
