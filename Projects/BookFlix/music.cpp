@@ -27,6 +27,7 @@ const char* clearVar = buffer;
 
 //Function Prototypes
 void clearScreen();
+char errorCheckYorN(char);
 
 // Main Function
 int main()
@@ -97,7 +98,18 @@ int main()
 
         // Ask your to select a book
         cout << "Select a book: ";
-        cin >> selectBook;
+
+        // Receive into selectBook variable
+        // Error check for input validation
+        while (!(cin >> selectBook) || (selectBook < 1 || selectBook > 10))   // Error Check for valid input
+        {
+            // Describe error
+            cout << "ERROR: you must choose a number from 1 to 10.";
+            // Clear input stream
+            cin.clear();
+            // Discard previous input
+            cin.ignore(123, '\n');
+        }
 
         switch (selectBook)
         {
@@ -112,6 +124,8 @@ int main()
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
                 cin >> keepBook;
+                // Error check keepBook
+                keepBook = errorCheckYorN(keepBook);
 
                 break;
             case (SELECT_BOOK_2 + 1):
@@ -125,6 +139,9 @@ int main()
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
                 cin >> keepBook;
+                // Error check keepBook
+                keepBook = errorCheckYorN(keepBook);
+
                 break;
             case (SELECT_BOOK_3 + 1):
                 clearScreen();
@@ -251,6 +268,26 @@ int main()
     keptBooks.close();
     return 0;
 }
+//***************************************************
+// function errorCheckYN check for valid input.     *
+// In this case the user must enter a Y or and N.   *
+//***************************************************
+char errorCheckYorN(char letter)
+{
+    while (!(letter == 'y' || letter == 'Y' || letter == 'n' || letter == 'N'))
+        {
+            // Explain error
+            cout << "ERROR: you must choose either Y or N.";
+            // Clear input stream
+            cin.clear();
+            // Discard previous input
+            cin.ignore(123, '\n');
+            // Receive input again
+            cin >> letter;
+        }
+    return letter;
+}
+
 
 //***************************************************
 // function to clear screen, using variable         *
