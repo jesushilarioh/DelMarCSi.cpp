@@ -137,53 +137,43 @@ void clearScreen()
 //***************************************************
 void Romance()
 {
-    int SIZE = 1024;
+    // Variables
+    const int SIZE = 4;                   // Holds array size
     int position = 0;
-    char * array = new char [SIZE];
+    char repeat_romancemenu;        // Holds Y or N to return to Romance menu or not
+    int menu_romancechoice;         // Holds romance book selection
 
-    ifstream file("RomanceBooksAshley.txt");
+    // Arrays
+    string romanceBookInfo[SIZE];   // Holds Romance Book info: author, title, date
 
+    // Input Files
+    ifstream file;
 
-    if(file.is_open())
-    {
-        cout << "File opened" << endl << endl;
-        cout << "Author              Title        Date" << endl;
-
-        while (!file.eof() && position < SIZE)
-        {
-            file.get(array[position]);
-            position++;
-        }
-        array [position-1] = '\0';
-
-        for (int i = 0; array[i] != '\0'; i++)
-        {
-
-            cout << array[i];
-
-        }
-
-    }
-    else
-    {
-        cout << "File could not be opened." << endl;
-    }
-    file.close();
-
-    RomanceDes();
-}
-
-//***************************************************
-// RomanceDes Function.                             *
-//***************************************************
-
-void RomanceDes()
-{
-    char repeat_romancemenu;
-    int menu_romancechoice;
     do
     {
-        cout << endl << "Chose a book to read the description" << endl << endl;
+        // Open input file.
+        file.open("RomanceBooksAshley.txt");
+
+        // Clear the screen
+        clearScreen();
+        // Display book selection
+        cout << "\n\n" << endl;
+        cout << " Author             Title               Date" << endl << endl;
+
+        // This For loop get contents from the external file
+        // and Displays the to screen.
+        for (int count = 0; count < SIZE; count++)
+        {
+            // getting from external file
+            getline(file, romanceBookInfo[count]);
+            // displays contents to screen
+            cout << " " << romanceBookInfo[count] << endl;
+        }
+
+        // Close input file.
+        file.close();
+
+        cout << endl << " Choose a book to read the description: ";
 
         cin >> menu_romancechoice;
         cout << endl;
@@ -192,83 +182,121 @@ void RomanceDes()
         {
             case 1:
             {
-                cout << "Would you risk it all to change your destiny?" << endl << endl;
+                // Clear the screen
+                clearScreen();
+                // Display Selction
+                cout << endl << " " << romanceBookInfo[0] << endl << endl;
+                // Display Description
+                cout << "\tWould you risk it all to " << endl
+                     << " change your destiny?" << endl << endl;
 
-                cout << "The last thing Kelsey Hayes thought she'd be doing" << endl
-                << "this summer was trying to" << endl
-                << "break a 300-year old Indian curse." << endl
-                << "With a mysterious white tiger named Ren." << endl
-                << "Halfway around the world." << endl
-                << "But that's exactly what happened." << endl << endl;
+                cout << "\tThe last thing Kelsey Hayes thought she'd be" << endl
+                     << " doing this summer was trying to break a 300-year" << endl
+                     << " old Indian curse. With a mysterious white tiger " << endl
+                     << " named Ren. Halfway around the world. But that's" << endl
+                     << " exactly what happened." << endl << endl;
 
-                cout << "Face-to-face with dark forces, spellbinding magic,"<< endl
-                << "and mystical worlds where nothing is what it seems," << endl
-                << "Kelsey risks everything to piece together an ancient prophecy" << endl
-                << "that could break the curse forever." << endl
-                << "Packed with magic, action-adventure, and romance," << endl
-                << "the epic Tiger's Curse series will keep you breathless" << endl
-                << "and yearning for more." << endl;
-
+                cout << "\tFace-to-face with dark forces, spellbinding "<< endl
+                     << " magic, and mystical worlds where nothing is " << endl
+                     << " what it seems, Kelsey risks everything to piece " << endl
+                     << " together an ancient prophecy that could break the " << endl
+                     << " curse forever. Packed the epic with magic, " << endl
+                     << " action-adventure, and romance, Tiger's Curse " << endl
+                     << " series will keep you breathless and yearning for " << endl
+                     << " more." << endl;
             }
                 break;
             case 2:
             {
-                cout << "Back in Oregon, Kelsey tries to pick up the pieces of her life" << endl
-                << "and push aside her feelings for Ren." << endl
-                << "Kelsey Hayes's eighteenth summer was crazy." << endl
-                << "The kind of crazy nobody would ever believe." << endl;
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << romanceBookInfo[1] << endl << endl;
+                // Display Description
+                cout << "\tBack in Oregon, Kelsey tries to pick up the " << endl
+                     << " pieces of her life and push aside her feelings " << endl
+                     << " for Ren. Kelsey Hayes's eighteenth summer was" << endl
+                     << " crazy. The kind of crazy nobody would ever" << endl
+                     << " believe." << endl << endl;
 
-                cout << "Aside From battling immortal sea monkeys and" << endl
-                << "trekking the jungles of India, she fell in love with Ren," << endl
-                << "a 300-year-old prince." << endl;
+                cout << "\tAside From battling immortal sea monkeys and " << endl
+                     << " trekking the jungles of India, she fell in love " << endl
+                     << " with Ren, a 300-year-old prince." << endl << endl;
 
-                cout << "When danger suddenly forces Kelsey on another Indian quest," << endl
-                << "with Ren's bad-boy brother, Kishan," << endl
-                << "the unlikely duo begins to question their true destiny." << endl
-                << "Ren's life hangs in the balance--so does the truth within Kelsey's heart." << endl;
+                cout << "\tWhen danger suddenly forces Kelsey on another " << endl
+                     << " Indian quest, with Ren's bad-boy brother, " << endl
+                     << " Kishan, the unlikely duo begins to question their " << endl
+                     << " true destiny. Ren's life hangs in the balance--" << endl
+                     << " so does the truth within Kelsey's heart." << endl;
 
             }
                 break;
             case 3:
             {
-                cout << "Galen, a Syrena prince, searches land for a girl he's heard can communicate with fish." << endl
-                << "It's while Emma is on vacation at the beach that she meets Galen." << endl
-                << "Although their connection is immediate and powerful," << endl
-                << "Galen's not fully convinced that Emma's the one he's been looking for." << endl
-                << "That is, until a deadly encounter with a shark proves that Emma" << endl
-                << "and her Gift may be the only thing that can save his kingdom." << endl
-                << "He needs her help�no matter what the risk." << endl;
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << romanceBookInfo[2] << endl << endl;
+                // Display Description
+                cout << "\tGalen, a Syrena prince, searches land for a " << endl
+                     << " girl he's heard can communicate with fish. " << endl
+                     << " It's while Emma is on  vacation at the beach" << endl
+                     << " that she meets Galen. Although  their connection " << endl
+                     << " is immediate and powerful, Galen's not fully convinced " << endl
+                     << " that Emma's the one he's been looking for. That is," << endl
+                     << " until a deadly encounter with a shark proves" << endl
+                     << " that Emma and her Gift may be the only thing that " << endl
+                     << " can save  his kingdom. He needs her help�no matter" << endl
+                     << " what the risk." << endl;
 
             }
                 break;
             case 4:
             {
-                cout << "Emma has just learned that her mother is a long-lost Poseidon princess," << endl
-                << "and now struggles with an identity crisis:" << endl
-                << "As a Half-Breed, she's a freak in the human world and an abomination" <<endl
-                << "in the Syrena realm. Syrena law states all Half-Breeds should be put to death." << endl;
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << romanceBookInfo[3] << endl << endl;
+                // Display Description
+                cout << "\tEmma has just learned that her mother is a " << endl
+                     << " long-lost Poseidon princess, and now struggles " << endl
+                     << " with an identity crisis: As a Half-Breed, " << endl
+                     << " she's a freak in the human  world and an abomination" << endl
+                     << " in the Syrena realm. Syrena law states all " << endl
+                     << " Half-Breeds should be put to death." << endl << endl;
 
-                cout << "As if that's not bad enough, her mother's reappearance in the Syrena world" << endl
-                << "turns the two kingdoms�Poseidon and Triton�against one another." << endl
-                << "Which leaves Emma with a decision to make:" << endl
-                << "Should she comply with Galen's request to keep herself safe and" << endl
-                << "just hope for the best? Or should she risk it all and reveal herself�and" << endl
-                << "her Gift�to save a people she's never known?" << endl;
+                cout << "\tAs if that's not bad enough, her mother's " << endl
+                     << " reappearance in the Syrena world turns the " << endl
+                     << " two kingdoms�Poseidon and Triton�against one " << endl
+                     << " another. Which leaves Emma with a decision to make:" << endl
+                     << " Should she comply with Galen's request to keep" << endl
+                     << " herself safe and just hope for the best? Or " << endl
+                     << " should she risk it all and reveal herself�and" << endl
+                     << " her Gift�to save a people she's never known?" << endl;
 
             }
                 break;
             default:
             {
-                cout << "Invalid answer. Please try again." << endl;
+                cout << " Invalid answer. Please try again." << endl;
             }
                 break;
 
         }
-        cout << endl << "Would you like to return to the Romance menu? (Y/N)" << endl;
+        cout << endl << " Would you like to return to the Romance menu? (Y/N)" << endl;
 
         cin >> repeat_romancemenu;
     }
     while (repeat_romancemenu == 'Y' || repeat_romancemenu == 'y');
+}
+
+//***************************************************
+// RomanceDes Function.                             *
+//***************************************************
+
+void RomanceDes()
+{
+
 }
 
 
@@ -435,7 +463,7 @@ void Music()
 
     int selectBook;             // Holds book selection
     char keepBook,              // Holds Y or N
-    anotherSelection;      // Holds Y or N to return to music menu or not
+         anotherSelection;      // Holds Y or N to return to music menu or not
 
     // Open input/ouput files
     inputAuthors.open("Authors.txt");
