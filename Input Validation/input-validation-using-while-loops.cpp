@@ -17,26 +17,18 @@ int main()
     /* Input validation when using numbers. */
     int number;
 
-    cout << "Enter a number in the range 10-25: ";
-    while (!(cin >> number))
+    cout << "Enter a number in the range 1-10: ";
+    while (!(cin >> number) || (number < 1 || number > 10))
     {
         // Explain error
         cout << "ERROR: A number must be pressed.\n"
-        << "Enter a value in the range 1-100: ";
+        << "Enter a value in the range 1-10: ";
         // Clear input stream
         cin.clear();
         // Discard previous input
         cin.ignore(1200, '\n');
     }
-    while (number < 1 || number > 100)
-    {
-        // Explain error
-        cout << "ERROR: The value must be in the range 1-100.\n"
-        << "Enter a value in the range 1-100: ";
-        // Ask for new input
-        cin >> number;
-    }
-
+   
     cout << "You entered the number " << number << endl;
 
 
