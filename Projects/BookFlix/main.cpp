@@ -27,6 +27,7 @@ void Adventure();           // Adventure Genre
 void Mystery();             // Mystery Genre
 void clearScreen();         // Mystery Genre
 char errorCheckYorN(char);  // Error Check for Y or N.
+int errorCheckInts1_4(int); // Error Check range 1-4 and integers
 
 int main()
 {
@@ -45,17 +46,9 @@ int main()
         cout << "\n3. Adventure" << endl;
         cout << "\n4. Mystery\n" << endl;
 
-        // Receive into menu_choice
-        // Error check for input validation
-        while (!(cin >> menu_choice) || (menu_choice < 1 || menu_choice > 4))   // Error Check for valid input
-        {
-            // Describe error
-            cout << "ERROR: you must choose a number from 1 to 10.";
-            // Clear input stream
-            cin.clear();
-            // Discard previous input
-            cin.ignore(123, '\n');
-        }
+        // Receive user input into menu_choice
+        // Error check for valid input
+        menu_choice = errorCheckInts1_4(menu_choice);
 
         switch (menu_choice)
         {
@@ -88,7 +81,10 @@ int main()
         // Clear Screen
         cout << "\nWould you like to return to the main menu? (Y/N)" << endl;
 
+        // Receive user input into repeat_menu
         cin >> repeat_menu;
+        // Error check for valid input (Y/N)
+        repeat_menu = errorCheckYorN(repeat_menu);
 
     } while (repeat_menu == 'Y' || repeat_menu == 'y');
 
@@ -100,6 +96,7 @@ int main()
 // function errorCheckYN check for valid input.     *
 // In this case the user must enter a Y or and N.   *
 //***************************************************
+
 char errorCheckYorN(char letter)
 {
     while (!(letter == 'y' || letter == 'Y' || letter == 'n' || letter == 'N'))
@@ -118,10 +115,31 @@ char errorCheckYorN(char letter)
     return letter;
 }
 
+//***********************************************************
+// Function errorCheckInt1-4 checks for valid input.        *
+// In this case the user must enter and integer or choose   *
+// a number between 1 and 4.                                *
+//***********************************************************
+
+int errorCheckInts1_4(int num)
+{
+    while (!(cin >> num) || (num < 1 || num > 4))
+    {
+        // Explain the Error
+        cout << "ERROR: you must choose a number from 1 to 4.";
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(123, '\n');
+    }
+    return num;
+}
+
 //***************************************************
 // function to clear screen, using variable         *
 // created in PPD statement                         *
 //***************************************************
+
 void clearScreen()
 {
     system(clearVar);
@@ -164,9 +182,6 @@ void Music()
     char keepBook,              // Holds Y or N
          anotherSelection;      // Holds Y or N to return to music menu or not
 
-
-
-
     // Select Book from a list
     do
     {
@@ -186,7 +201,7 @@ void Music()
             getline(inputBooks, book[count]);
             getline(inputDates, date[count]);
             cout << '\t' << (count + 1) << ". "
-            << book[count] << ", " << endl;
+                 << book[count] << ", " << endl;
         }
 
         // Close inputFiles
@@ -199,15 +214,7 @@ void Music()
 
         // Receive into selectBook variable
         // Error check for input validation
-        while (!(cin >> selectBook) || (selectBook < 1 || selectBook > 10))   // Error Check for valid input
-        {
-            // Describe error
-            cout << "ERROR: you must choose a number between 1 and 10.";
-            // Clear input stream
-            cin.clear();
-            // Discard previous input
-            cin.ignore(123, '\n');
-        }
+        selectBook = errorCheckInts1_4(selectBook);
 
         switch (selectBook)
         {
@@ -341,6 +348,7 @@ void Music()
         cout << "Would you like to make another "
         << "music genre selection? (Y/N)";
         cin >> anotherSelection;
+        // Error check anotherSelection
         anotherSelection = errorCheckYorN(anotherSelection);
 
     } while(anotherSelection == 'y' || anotherSelection == 'Y');// End Do While
@@ -353,6 +361,7 @@ void Music()
 //***************************************************
 // Romance Function.                                *
 //***************************************************
+
 void Romance()
 {
     // Variables
@@ -395,7 +404,9 @@ void Romance()
 
         cout << endl << " Choose a book to read the description: ";
 
-        cin >> menu_romancechoice;
+        // Receive into menu_romancechoice variable
+        // Error check for input validation
+        menu_romancechoice = errorCheckInts1_4(menu_romancechoice);
         cout << endl;
 
         switch(menu_romancechoice)
@@ -505,7 +516,10 @@ void Romance()
         }
         cout << endl << " Would you like to return to the Romance menu? (Y/N)" << endl;
 
+        // Receive into repeat_romancemenu variable
         cin >> repeat_romancemenu;
+        // Error check for input validation
+        repeat_romancemenu = errorCheckYorN(repeat_romancemenu);
     }
     while (repeat_romancemenu == 'Y' || repeat_romancemenu == 'y');
 }
@@ -573,7 +587,7 @@ void Adventure()
             getline(inputDates, date[count]);
             getline(inputDescription, description[count], '$');
             cout << '\t' << (count + 1) << ". "
-            << title[count] << endl;
+                 << title[count] << endl;
         }
 
         // Close inputFiles
@@ -674,8 +688,8 @@ void Adventure()
             cout << "That's Great!\n" << endl;
             // Write to output file books kept by user
             keptBooks << title[selectBook - 1] << ", "
-            << author[selectBook - 1] << ", "
-            << date [selectBook - 1] << endl;
+                      << author[selectBook - 1] << ", "
+                      << date [selectBook - 1] << endl;
         }
 
         // Clear screen
