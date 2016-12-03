@@ -21,11 +21,10 @@ const char* clearVar = buffer;
 #endif
 
 //Function Prototypes
+void Music();               // Music Genre
 void Romance();             // Romance Genre
-void RomanceDes();          // Romance Discriptions
 void Adventure();           // Adventure Genre
 void Mystery();             // Mystery Genre
-void Music();               // Music Genre
 void clearScreen();         // Mystery Genre
 char errorCheckYorN(char);  // Error Check for Y or N.
 
@@ -35,10 +34,11 @@ int main()
     int menu_choice;    // Holds Menu Choice
     char repeat_menu;   // To Re-display the menu_choice
 
-    // Clear Screen
-    clearScreen();
     do
     {
+        // Clear Screen
+        clearScreen();
+
         cout << "\nChoose a genre to begin" << endl;
         cout << "\n1. Music " << endl;
         cout << "\n2. Romance" << endl;
@@ -125,297 +125,6 @@ char errorCheckYorN(char letter)
 void clearScreen()
 {
     system(clearVar);
-}
-
-//***************************************************
-// Romance Function.                                *
-//***************************************************
-void Romance()
-{
-    // Variables
-    const int SIZE = 4;                   // Holds array size
-    int position = 0;
-    char repeat_romancemenu;        // Holds Y or N to return to Romance menu or not
-    int menu_romancechoice;         // Holds romance book selection
-
-    // Arrays
-    string romanceBookInfo[SIZE];   // Holds Romance Book info: author, title, date
-
-    // Input Files
-    ifstream file;
-
-    do
-    {
-
-        // Clear the screen
-        clearScreen();
-
-        // Open input file.
-        file.open("RomanceBooksAshley.txt");
-
-        // Display book selection
-        cout << "\n\n" << endl;
-        cout << " Author             Title               Date" << endl << endl;
-
-        // This For loop get contents from the external file
-        // and Displays the to screen.
-        for (int count = 0; count < SIZE; count++)
-        {
-            // getting from external file
-            getline(file, romanceBookInfo[count]);
-            // displays contents to screen
-            cout << " " << romanceBookInfo[count] << endl;
-        }
-
-        // Close input file.
-        file.close();
-
-        cout << endl << " Choose a book to read the description: ";
-
-        cin >> menu_romancechoice;
-        cout << endl;
-
-        switch(menu_romancechoice)
-        {
-            case 1:
-            {
-                // Clear the screen
-                clearScreen();
-                // Display Selction
-                cout << endl << " " << romanceBookInfo[0] << endl << endl;
-                // Display Description
-                cout << "\tWould you risk it all to " << endl
-                     << " change your destiny?" << endl << endl;
-
-                cout << "\tThe last thing Kelsey Hayes thought she'd be" << endl
-                     << " doing this summer was trying to break a 300-year" << endl
-                     << " old Indian curse. With a mysterious white tiger " << endl
-                     << " named Ren. Halfway around the world. But that's" << endl
-                     << " exactly what happened." << endl << endl;
-
-                cout << "\tFace-to-face with dark forces, spellbinding "<< endl
-                     << " magic, and mystical worlds where nothing is " << endl
-                     << " what it seems, Kelsey risks everything to piece " << endl
-                     << " together an ancient prophecy that could break the " << endl
-                     << " curse forever. Packed the epic with magic, " << endl
-                     << " action-adventure, and romance, Tiger's Curse " << endl
-                     << " series will keep you breathless and yearning for " << endl
-                     << " more." << endl;
-            }
-                break;
-            case 2:
-            {
-                // Clear the screen
-                clearScreen();
-                // Display Selection
-                cout << endl << " " << romanceBookInfo[1] << endl << endl;
-                // Display Description
-                cout << "\tBack in Oregon, Kelsey tries to pick up the " << endl
-                     << " pieces of her life and push aside her feelings " << endl
-                     << " for Ren. Kelsey Hayes's eighteenth summer was" << endl
-                     << " crazy. The kind of crazy nobody would ever" << endl
-                     << " believe." << endl << endl;
-
-                cout << "\tAside From battling immortal sea monkeys and " << endl
-                     << " trekking the jungles of India, she fell in love " << endl
-                     << " with Ren, a 300-year-old prince." << endl << endl;
-
-                cout << "\tWhen danger suddenly forces Kelsey on another " << endl
-                     << " Indian quest, with Ren's bad-boy brother, " << endl
-                     << " Kishan, the unlikely duo begins to question their " << endl
-                     << " true destiny. Ren's life hangs in the balance--" << endl
-                     << " so does the truth within Kelsey's heart." << endl;
-
-            }
-                break;
-            case 3:
-            {
-                // Clear the screen
-                clearScreen();
-                // Display Selection
-                cout << endl << " " << romanceBookInfo[2] << endl << endl;
-                // Display Description
-                cout << "\tGalen, a Syrena prince, searches land for a " << endl
-                     << " girl he's heard can communicate with fish. " << endl
-                     << " It's while Emma is on  vacation at the beach" << endl
-                     << " that she meets Galen. Although  their connection " << endl
-                     << " is immediate and powerful, Galen's not fully convinced " << endl
-                     << " that Emma's the one he's been looking for. That is," << endl
-                     << " until a deadly encounter with a shark proves" << endl
-                     << " that Emma and her Gift may be the only thing that " << endl
-                     << " can save  his kingdom. He needs her help no matter" << endl
-                     << " what the risk." << endl;
-
-            }
-                break;
-            case 4:
-            {
-                // Clear the screen
-                clearScreen();
-                // Display Selection
-                cout << endl << " " << romanceBookInfo[3] << endl << endl;
-                // Display Description
-                cout << "\tEmma has just learned that her mother is a " << endl
-                     << " long-lost Poseidon princess, and now struggles " << endl
-                     << " with an identity crisis: As a Half-Breed, " << endl
-                     << " she's a freak in the human  world and an abomination" << endl
-                     << " in the Syrena realm. Syrena law states all " << endl
-                     << " Half-Breeds should be put to death." << endl << endl;
-
-                cout << "\tAs if that's not bad enough, her mother's " << endl
-                     << " reappearance in the Syrena world turns the " << endl
-                     << " two kingdoms Poseidon and Triton against one " << endl
-                     << " another. Which leaves Emma with a decision to make:" << endl
-                     << " Should she comply with Galen's request to keep" << endl
-                     << " herself safe and just hope for the best? Or " << endl
-                     << " should she risk it all and reveal herself and" << endl
-                     << " her Gift to save a people she's never known?" << endl;
-
-            }
-                break;
-            default:
-            {
-                cout << " Invalid answer. Please try again." << endl;
-            }
-                break;
-
-        }
-        cout << endl << " Would you like to return to the Romance menu? (Y/N)" << endl;
-
-        cin >> repeat_romancemenu;
-    }
-    while (repeat_romancemenu == 'Y' || repeat_romancemenu == 'y');
-}
-
-//***************************************************
-// RomanceDes Function.                             *
-//***************************************************
-
-void RomanceDes()
-{
-
-}
-
-
-//***************************************************
-// Adventure Function.                              *
-//***************************************************
-
-void Adventure()
-{
-    cout << "\nHere's a list of 3 Adventure books you'd might like to read.\n" << endl;
-    //Sleep (1000);
-
-    fstream inFile;
-    const int SIZE = 10;        //array size
-    const int min_value = 0;    //min random value
-    const int max_value = 5;    //max random value
-
-    string book[SIZE];          //declare arrays
-    string author[SIZE];
-    string date[SIZE];
-
-    int count = 0;
-    int num = 1;
-    int RNG;        //for random generator
-
-    inFile.open ("AdventureBooksRegean.csv");       //open the file
-
-    if (inFile.fail())             //if file did not open
-    {
-        cout << "Error! Could not open file." << endl;
-    }
-    if (inFile)
-    {
-
-        while (getline (inFile, book[count], ','))
-        {
-            getline (inFile, author[count], ',');
-            getline (inFile, date[count], '\n');
-            count++;
-        }
-
-        cout << "Title" << "\t\t" << setw(25) << "Author" << "\t" << setw(14) << "Date\n" << endl;
-
-        for (int numloop = 0; numloop < 3; numloop++)
-        {
-            //get the system time
-            unsigned seed = time(0);
-            //seed the random num generator
-            srand(seed);
-
-            RNG = (rand() % (max_value - min_value + 1)) + min_value;
-            cout << num << ". " << book[RNG] << setw(25) << right << author[RNG] << setw(10) << right << date[RNG] << endl << endl;
-            num++;
-
-
-            //Sleep (1000);
-        }
-    }
-
-
-    inFile.close();     //close the file
-
-}
-
-//***************************************************
-// Mystery Function.                                *
-//***************************************************
-
-void Mystery()
-{
-    cout << "\nHere's a list of  3 Mystery books you'd might like to read.\n" << endl;
-    //Sleep (1000);
-
-    fstream inFile;
-    const int SIZE = 10;        //array size
-    const int min_value = 0;    //min random value
-    const int max_value = 5;    //max random value
-
-    string book[SIZE];          //declare arrays
-    string author[SIZE];
-    string date[SIZE];
-
-    int count = 0;
-    int num = 1;
-    int RNG;        //for random generator
-
-    inFile.open ("MysteryBooksRegean.csv");       //open the file
-
-    if (inFile.fail())             //if file did not open
-    {
-        cout << "Error! Could not open file." << endl;
-    }
-    if (inFile)
-    {
-
-        while (getline (inFile, book[count], ','))
-        {
-            getline (inFile, author[count], ',');
-            getline (inFile, date[count], '\n');
-            count++;
-        }
-
-        cout << "Title" << "\t\t" << setw(25) << "Author" << "\t" << setw(14) << "Date\n" << endl;
-
-        for (int numloop = 0; numloop < 3; numloop++)
-        {
-            //get the system time
-            unsigned seed = time(0);
-            //seed the random num generator
-            srand(seed);
-
-            RNG = (rand() % (max_value - min_value + 1)) + min_value;
-            cout << num << ". " << book[RNG] << setw(25) << right << author[RNG] << setw(10) << right << date[RNG] << endl << endl;
-            num++;
-
-
-            //Sleep (1000);
-        }
-    }
-
-
-    inFile.close();     //close the file
 }
 
 //***********************************************************
@@ -638,4 +347,488 @@ void Music()
 
     //Close output File
     keptBooks.close();
+}
+
+
+//***************************************************
+// Romance Function.                                *
+//***************************************************
+void Romance()
+{
+    // Variables
+    const int SIZE = 4;                   // Holds array size
+    int position = 0;
+    char repeat_romancemenu;        // Holds Y or N to return to Romance menu or not
+    int menu_romancechoice;         // Holds romance book selection
+
+    // Arrays
+    string romanceBookInfo[SIZE];   // Holds Romance Book info: author, title, date
+
+    // Input Files
+    ifstream file;
+
+    do
+    {
+
+        // Clear the screen
+        clearScreen();
+
+        // Open input file.
+        file.open("RomanceBooksAshley.txt");
+
+        // Display book selection
+        cout << "\n\n" << endl;
+        cout << " Author             Title               Date" << endl << endl;
+
+        // This For loop get contents from the external file
+        // and Displays the to screen.
+        for (int count = 0; count < SIZE; count++)
+        {
+            // getting from external file
+            getline(file, romanceBookInfo[count]);
+            // displays contents to screen
+            cout << " " << romanceBookInfo[count] << endl;
+        }
+
+        // Close input file.
+        file.close();
+
+        cout << endl << " Choose a book to read the description: ";
+
+        cin >> menu_romancechoice;
+        cout << endl;
+
+        switch(menu_romancechoice)
+        {
+            case 1:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selction
+                cout << endl << " " << romanceBookInfo[0] << endl << endl;
+                // Display Description
+                cout << "\tWould you risk it all to " << endl
+                     << " change your destiny?" << endl << endl;
+
+                cout << "\tThe last thing Kelsey Hayes thought she'd be" << endl
+                     << " doing this summer was trying to break a 300-year" << endl
+                     << " old Indian curse. With a mysterious white tiger " << endl
+                     << " named Ren. Halfway around the world. But that's" << endl
+                     << " exactly what happened." << endl << endl;
+
+                cout << "\tFace-to-face with dark forces, spellbinding "<< endl
+                     << " magic, and mystical worlds where nothing is " << endl
+                     << " what it seems, Kelsey risks everything to piece " << endl
+                     << " together an ancient prophecy that could break the " << endl
+                     << " curse forever. Packed the epic with magic, " << endl
+                     << " action-adventure, and romance, Tiger's Curse " << endl
+                     << " series will keep you breathless and yearning for " << endl
+                     << " more." << endl;
+            }
+                break;
+            case 2:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << romanceBookInfo[1] << endl << endl;
+                // Display Description
+                cout << "\tBack in Oregon, Kelsey tries to pick up the " << endl
+                     << " pieces of her life and push aside her feelings " << endl
+                     << " for Ren. Kelsey Hayes's eighteenth summer was" << endl
+                     << " crazy. The kind of crazy nobody would ever" << endl
+                     << " believe." << endl << endl;
+
+                cout << "\tAside From battling immortal sea monkeys and " << endl
+                     << " trekking the jungles of India, she fell in love " << endl
+                     << " with Ren, a 300-year-old prince." << endl << endl;
+
+                cout << "\tWhen danger suddenly forces Kelsey on another " << endl
+                     << " Indian quest, with Ren's bad-boy brother, " << endl
+                     << " Kishan, the unlikely duo begins to question their " << endl
+                     << " true destiny. Ren's life hangs in the balance--" << endl
+                     << " so does the truth within Kelsey's heart." << endl;
+
+            }
+                break;
+            case 3:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << romanceBookInfo[2] << endl << endl;
+                // Display Description
+                cout << "\tGalen, a Syrena prince, searches land for a " << endl
+                     << " girl he's heard can communicate with fish. " << endl
+                     << " It's while Emma is on  vacation at the beach" << endl
+                     << " that she meets Galen. Although  their connection " << endl
+                     << " is immediate and powerful, Galen's not fully convinced " << endl
+                     << " that Emma's the one he's been looking for. That is," << endl
+                     << " until a deadly encounter with a shark proves" << endl
+                     << " that Emma and her Gift may be the only thing that " << endl
+                     << " can save  his kingdom. He needs her help no matter" << endl
+                     << " what the risk." << endl;
+
+            }
+                break;
+            case 4:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << romanceBookInfo[3] << endl << endl;
+                // Display Description
+                cout << "\tEmma has just learned that her mother is a " << endl
+                     << " long-lost Poseidon princess, and now struggles " << endl
+                     << " with an identity crisis: As a Half-Breed, " << endl
+                     << " she's a freak in the human  world and an abomination" << endl
+                     << " in the Syrena realm. Syrena law states all " << endl
+                     << " Half-Breeds should be put to death." << endl << endl;
+
+                cout << "\tAs if that's not bad enough, her mother's " << endl
+                     << " reappearance in the Syrena world turns the " << endl
+                     << " two kingdoms Poseidon and Triton against one " << endl
+                     << " another. Which leaves Emma with a decision to make:" << endl
+                     << " Should she comply with Galen's request to keep" << endl
+                     << " herself safe and just hope for the best? Or " << endl
+                     << " should she risk it all and reveal herself and" << endl
+                     << " her Gift to save a people she's never known?" << endl;
+
+            }
+                break;
+            default:
+            {
+                cout << " Invalid answer. Please try again." << endl;
+            }
+                break;
+
+        }
+        cout << endl << " Would you like to return to the Romance menu? (Y/N)" << endl;
+
+        cin >> repeat_romancemenu;
+    }
+    while (repeat_romancemenu == 'Y' || repeat_romancemenu == 'y');
+}
+
+/*
+ *************************************************************************
+ * This is the Adventure function. This function call from the files the *
+ * title, author, and date. It will then allow the user to select a book *
+ * which will then display a description of the book. The user is then   *
+ * asked if they would like to keep the book. If they chose 'yes', the   *
+ * book information will be sent to another file. They the user will be  *
+ * asked if they would like to select another book. If they select 'no', *
+ * the adventure function will end.                                      *
+ *************************************************************************
+ */
+
+void Adventure()
+{
+    // Input Stream Objects
+    ifstream inputAuthors;      // For Authors.txt
+    ifstream inputTitle;        // For Books.txt
+    ifstream inputDates;        // For Date.txt
+    ifstream inputDescription;  // For Discription.txt
+
+    // Output Stream Objects
+    ofstream keptBooks;         // Output Stream Object
+
+    // Constants
+    const int SIZE = 4,
+    SELECT_BOOK_1  = 0,
+    SELECT_BOOK_2  = 1,
+    SELECT_BOOK_3  = 2,
+    SELECT_BOOK_4  = 3;
+
+    // Variables
+    string author[SIZE];        //author names
+    string title[SIZE];          // book titles
+    string date[SIZE];          // book dates
+    string description[SIZE];   // book descriptions
+
+    int selectBook;             // book selection
+    char keepBook,              // Holds Y or N
+         anotherSelection;      // Holds Y or N to return to adventure menu or not
+
+    // Open input/ouput files
+    inputAuthors.open("Adventure_authors.txt");
+    inputTitle.open("Adventure_titles.txt");
+    inputDates.open("Adventure_date.txt");
+    inputDescription.open("Adventure_descriptions.txt");
+    keptBooks.open("KeptAdventureBooks.txt", ios::out | ios::app);
+
+
+    // Select Book from a list
+    do
+    {
+
+        clearScreen();
+        // Display list of music books
+        cout << "Here are the available adventure books: \n" << endl;
+        // Fill arrays with external file data and display contents
+        for (int count = 0; count < SIZE; count++)
+        {
+            getline(inputAuthors, author[count]);
+            getline(inputTitle, title[count]);
+            getline(inputDates, date[count]);
+            getline(inputDescription, description[count], '$');
+            cout << '\t' << (count + 1) << ". "
+            << title[count] << endl;
+        }
+
+        // Close inputFiles
+        inputAuthors.close();
+        inputTitle.close();
+        inputDates.close();
+        inputDescription.close();
+
+        // Ask your to select a book
+        cout << "Select a book: ";
+
+        // Receive into selectBook variable
+        // Error check for input validation
+        while (!(cin >> selectBook) || (selectBook < 1 || selectBook > SIZE))   // Error Check for valid input
+        {
+            // Describe error
+            cout << "ERROR: you must choose a number between 1 and 4.\n";
+            // Clear input stream
+            cin.clear();
+            // Discard previous input
+            cin.ignore(123, '\n');
+        }
+
+        switch (selectBook)
+        {
+            case (SELECT_BOOK_1 + 1):
+                clearScreen();
+                cout << "\nYou've selected:"                << endl;
+                cout << '\t'    << title[SELECT_BOOK_1] << ", by ";
+                cout << author[SELECT_BOOK_1] << endl << endl;
+                cout << "    "  << description[SELECT_BOOK_1]    << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                // Error check keepBook
+                keepBook = errorCheckYorN(keepBook);
+                break;
+
+            case (SELECT_BOOK_2 + 1):
+                clearScreen();
+                cout << "\nYou've selected:"                << endl;
+                cout << "'\t'"    << title[SELECT_BOOK_2] << ", by ";
+                cout << author[SELECT_BOOK_2] << endl << endl;
+                cout << "    "  << description[SELECT_BOOK_2]    << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                // Error check keepBook
+                keepBook = errorCheckYorN(keepBook);
+                break;
+
+            case (SELECT_BOOK_3 + 1):
+                clearScreen();
+                cout << "\nYou've selected:"                << endl;
+                cout << '\t'    << title[SELECT_BOOK_3] << ", by ";
+                cout << author[SELECT_BOOK_3] << endl << endl;
+                cout << "    "  << description[SELECT_BOOK_3]    << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                // Error check keepBook
+                keepBook = errorCheckYorN(keepBook);
+                break;
+
+            case (SELECT_BOOK_4 + 1):
+                clearScreen();
+                cout << "\nYou've selected:"                << endl;
+                cout << '\t'    << title[SELECT_BOOK_4] << ", by ";
+                cout << author[SELECT_BOOK_4] << endl << endl;
+                cout << "    "  << description[SELECT_BOOK_4]    << endl;
+
+                // Ask is user would like to keep book
+                cout << "\nWould you like to keep this book?";
+                cout << " (Y/N)";
+                cin >> keepBook;
+                // Error check keepBook
+                keepBook = errorCheckYorN(keepBook);
+                break;
+
+            default:
+                cout << "No book selected." << endl;
+        }
+
+        // If no. Say ok.
+        if (keepBook == 'N' || keepBook == 'n')
+        {
+            cout << "Ok.\n" << endl;
+        }
+        // If yes. Say awesome!
+        else if (keepBook == 'y' || keepBook == 'Y')
+        {
+            cout << "That's Great!\n" << endl;
+            // Write to output file books kept by user
+            keptBooks << title[selectBook - 1] << ", "
+            << author[selectBook - 1] << ", "
+            << date [selectBook - 1] << endl;
+        }
+
+        // Clear screen
+        clearScreen();
+
+        // Ask if would like to make another music selection
+        cout << "Would you like to make another "
+        << "Adventure genre selection? (Y/N)";
+        cin >> anotherSelection;
+        anotherSelection = errorCheckYorN(anotherSelection);
+
+    } while(anotherSelection == 'y' || anotherSelection == 'Y');// End Do While
+
+    //Close output File
+    keptBooks.close();
+}
+
+//***************************************************
+// Mystery Function.                                *
+//***************************************************
+
+void Mystery()
+{
+    // Variables
+    const int SIZE = 4;             // Holds array size
+    int position = 0;
+    char repeat_mysterymenu;        // Holds Y or N to return to Romance menu or not
+    int menu_mysterychoice;         // Holds romance book selection
+
+    // Arrays
+    string mysteryBookInfo[SIZE];   // Holds Romance Book into: author, title, date
+
+    // Input Files
+    ifstream file;
+
+    do
+    {
+        // Clear the screen
+        clearScreen();
+
+        // Open input file.
+        file.open("MysteryBooksAshley.txt");
+
+        // Display book selection
+        cout << "\n\n" << endl;
+        cout << " Author             Title               Date" << endl << endl;
+
+        // This For Loop gets contents from the external file
+        // and Displays them to the screen.
+        for (int count = 0; count < SIZE; count++)
+        {
+            // getting from external file
+            getline(file, mysteryBookInfo[count]);
+            // displays contents to screen
+            cout << " " << mysteryBookInfo[count] << endl;
+        }
+
+        // Close input file.
+        file.close();
+
+        cout << endl << " Choose a book to read the discription: ";
+
+        cin >> menu_mysterychoice;
+        cout << endl;
+
+        switch(menu_mysterychoice)
+        {
+            case 1:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << mysteryBookInfo[0] << endl << endl;
+                // Diplay Description
+                cout << "\tThe classic and terrifying story " << endl
+                     << "of one of the most famous supernatural events" << endl
+                     << "--the infamous possessed house on Long Island from " << endl
+                     << "which the Lutz family fled in 1975." << endl;
+            }
+                break;
+
+            case 2:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << mysteryBookInfo[0] << endl << endl;
+                // Diplay Description
+                cout << "\tHarriet Vanger, a scion of one of Sweden's " << endl
+                     << "wealthiest families disappeared over forty years ago. " << endl
+                     << "All these years later, her aged uncle continues to seek " << endl
+                     << "the truth. He hires Mikael Blomkvist, a crusading " << endl
+                     << "journalist recently trapped by a libel conviction, to investigate." << endl
+                     << "He is aided by the pierced and tattooed punk prodigy Lisbeth " << endl
+                     << "Salander. Together they tap into a vein of unfathomable " << endl
+                     << "iniquity and astonishing corruption." << endl;
+            }
+                break;
+
+            case 3:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << mysteryBookInfo[0] << endl << endl;
+                // Diplay Description
+                cout << "\tAn ingenious code hidden in " << endl
+                     << "the works of Leonardo da Vinci. A desperate race " << endl
+                     << "through the cathedrals and castles of Europe." << endl
+                     << "An astonishing truth concealed for centuries...unveiled " << endl
+                     << "at last." << endl << endl;
+
+                cout << "\tWhile in Paris, Harvard symbologist " << endl
+                     << "Robert Langdon is awakened by a phone call in " << endl
+                     << "the dead of the night. The elderly curator of the " << endl
+                     << "Louvre has been murdered inside the museum, his body covered " << endl
+                     << "in baffling symbols. As Langdon and gifted French cryptologist" << endl
+                     << "Sophie Neveu sort through the bizarre riddles, they are stunned " << endl
+                     << "to  discover a trail of clues hidden in the works of Leonardo da" << endl
+                     << "Vinci clues visible for all to see and yet ingeniously disguised " << endl
+                     << "by the painter." << endl;
+            }
+                break;
+
+            case 4:
+            {
+                // Clear the screen
+                clearScreen();
+                // Display Selection
+                cout << endl << " " << mysteryBookInfo[0] << endl << endl;
+                // Diplay Description
+                cout << "\tIn the spring of 1998, Kouichi " << endl
+                     << "Sakakibara transfers to Yomiyama North Middle School." << endl
+                     << "In class, he develops a sense of unease as he notices that " << endl
+                     << "the people around him act like they're walking on eggshells," << endl
+                     << "and students and teachers alike seem frightened." << endl
+                     << "As a chain of horrific deaths begin to unfold around him," << endl
+                     << "he comes to discover that he has been placed in the cursed Class 3" << endl
+                     << "in which the student body head count is always one more than expected." << endl
+                     << "Class 3 is haunted by a vengeful spirit responsible for gruesome deaths " << endl
+                     << "in an effort to satisfy its spite. To stop the vicious cycle gripping " << endl
+                     << "his new school, Kouichi decides to get to the bottom of the curse," << endl
+                     << "but is he prepared for the horror that lies ahead...?" << endl;
+            }
+                break;
+            default:
+            {
+                cout << " Invalid answer. Please try again." << endl;
+            }
+                break;
+        }
+        cout << endl << "Would you like to return to the Romance menu? (Y/N)" << endl;
+
+        cin >> repeat_mysterymenu;
+    } while (repeat_mysterymenu == 'Y' || repeat_mysterymenu == 'y');
 }
