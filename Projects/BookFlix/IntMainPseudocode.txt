@@ -1,0 +1,36 @@
+Do
+    Display Book Genre menu
+        1. Music
+        2. Romance
+        3. Adventure
+        4. Mystery
+
+        Ask user to choose book
+        User input saved into menu_choice variable
+        Error check for valid user input
+        while menu_choice is not an int or between the range of 1 to 4
+            Explain user Error
+            Clear input stream
+            Discard previous input
+
+            user will then be sent to the function assigned to the genre that they pick
+            Switch
+                Case 1 Music
+                Case 2 Romance
+                Case 3 Adventure
+                Case 4 Mystery
+                default
+
+    Ask if the user would like to return to main menu
+    Receive user input into repeat_menu
+    Error check for valid user input
+    while repeat_menu is not Y or N
+        Explain the error
+        Clear input stream
+        Discard previous input
+
+End Do While Statement
+(While anotherSelection is Y repeat the music menu selection)
+
+Display "Have a nice day!"
+End Program

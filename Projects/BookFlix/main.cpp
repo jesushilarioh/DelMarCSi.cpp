@@ -39,21 +39,6 @@ int main()
     clearScreen();
     do
     {
-        cout <<  "#     #                                                            "<< endl
-             <<  "#  #  # ###### #       ####   ####  #    # ######    #####  ####   "<< endl
-             <<  "#  #  # #      #      #    # #    # ##  ## #           #   #    #  "<< endl
-             <<  "#  #  # #####  #      #      #    # # ## # #####       #   #    #  "<< endl
-             <<  "#  #  # #      #      #      #    # #    # #           #   #    #  "<< endl
-             <<  "#  #  # #      #      #    # #    # #    # #           #   #    #  "<< endl
-             <<  " ## ##  ###### ######  ####   ####  #    # ######      #    ####   "<< endl
-             <<  "######                       #######                               "<< endl
-             <<  "#     #  ####   ####  #    # #       #      # #    #               "<< endl
-             <<  "#     # #    # #    # #   #  #       #      #  #  #                "<< endl
-             <<  "######  #    # #    # ####   #####   #      #   ##                 "<< endl
-             <<  "#     # #    # #    # #  #   #       #      #   ##                 "<< endl
-             <<  "#     # #    # #    # #   #  #       #      #  #  #                "<< endl
-             <<  "######   ####   ####  #    # #       ###### # #    #               "<< endl;
-
         cout << "\nChoose a genre to begin" << endl;
         cout << "\n1. Music " << endl;
         cout << "\n2. Romance" << endl;
@@ -165,14 +150,6 @@ void Romance()
         // Clear the screen
         clearScreen();
 
-        cout <<   "######                                            "<< endl
-             <<   "#     #  ####  #    #   ##   #    #  ####  ###### "<< endl
-             <<   "#     # #    # ##  ##  #  #  ##   # #    # #      "<< endl
-             <<   "######  #    # # ## # #    # # #  # #      #####  "<< endl
-             <<   "#   #   #    # #    # ###### #  # # #      #      "<< endl
-             <<   "#    #  #    # #    # #    # #   ## #    # #      "<< endl
-             <<   "#     #  ####  #    # #    # #    #  ####  ###### ";
-
         // Open input file.
         file.open("RomanceBooksAshley.txt");
 
@@ -266,7 +243,7 @@ void Romance()
                      << " that Emma's the one he's been looking for. That is," << endl
                      << " until a deadly encounter with a shark proves" << endl
                      << " that Emma and her Gift may be the only thing that " << endl
-                     << " can save  his kingdom. He needs her help�no matter" << endl
+                     << " can save  his kingdom. He needs her help no matter" << endl
                      << " what the risk." << endl;
 
             }
@@ -287,12 +264,12 @@ void Romance()
 
                 cout << "\tAs if that's not bad enough, her mother's " << endl
                      << " reappearance in the Syrena world turns the " << endl
-                     << " two kingdoms�Poseidon and Triton�against one " << endl
+                     << " two kingdoms Poseidon and Triton against one " << endl
                      << " another. Which leaves Emma with a decision to make:" << endl
                      << " Should she comply with Galen's request to keep" << endl
                      << " herself safe and just hope for the best? Or " << endl
-                     << " should she risk it all and reveal herself�and" << endl
-                     << " her Gift�to save a people she's never known?" << endl;
+                     << " should she risk it all and reveal herself and" << endl
+                     << " her Gift to save a people she's never known?" << endl;
 
             }
                 break;
@@ -451,51 +428,44 @@ void Mystery()
 // the menu again. If no, the program will then exit this   *
 // function.                                                *
 //***********************************************************
+
 void Music()
 {
     // Input Stream Objects
-    ifstream inputAuthors,      // For Authors.txt
-    inputBooks,        // For Books.txt
-    inputDates,        // For Date.txt
-    inputDiscription;  // For Discription.txt
+    ifstream inputAuthors,      // For MusicAuthors.txt
+    inputBooks,        // For MusicBooks.txt
+    inputDates;        // For MusicDate.txt
 
     // Output Stream Objects
     ofstream keptBooks;         // Output Stream Object
 
     // Constants
-    const int SIZE = 10,
+    const int SIZE = 4,
     SELECT_BOOK_1  = 0,
     SELECT_BOOK_2  = 1,
     SELECT_BOOK_3  = 2,
-    SELECT_BOOK_4  = 3,
-    SELECT_BOOK_5  = 4,
-    SELECT_BOOK_6  = 5,
-    SELECT_BOOK_7  = 6,
-    SELECT_BOOK_8  = 7,
-    SELECT_BOOK_9  = 8,
-    SELECT_BOOK_10 = 9;
+    SELECT_BOOK_4  = 3;
 
     // Variables
     string author[SIZE],        // Holds author names
     book[SIZE],          // Holds book names
-    date[SIZE],          // Holds book dates
-    discription[SIZE];   // Holds book discriptions
+    date[SIZE];          // Holds book dates
 
     int selectBook;             // Holds book selection
     char keepBook,              // Holds Y or N
          anotherSelection;      // Holds Y or N to return to music menu or not
 
-    // Open input/ouput files
-    inputAuthors.open("MusicAuthorsJesus.txt");
-    inputBooks.open("MusicBooksJesus.txt");
-    inputDates.open("MusicDateJesus.txt");
-    inputDiscription.open("Discriptions.txt");
-    keptBooks.open("RememberedBooks.txt", ios::out | ios::app);
+
 
 
     // Select Book from a list
     do
     {
+        // Open input/ouput files
+        inputAuthors.open("MusicAuthorsJesus.txt");
+        inputBooks.open("MusicTitleJesus.txt");
+        inputDates.open("MusicDateJesus.txt");
+        keptBooks.open("RememberedBooks.txt", ios::out | ios::app);
 
         clearScreen();
         // Display list of music books
@@ -506,7 +476,6 @@ void Music()
             getline(inputAuthors, author[count]);
             getline(inputBooks, book[count]);
             getline(inputDates, date[count]);
-            getline(inputDiscription, discription[count]);
             cout << '\t' << (count + 1) << ". "
             << book[count] << ", " << endl;
         }
@@ -515,10 +484,9 @@ void Music()
         inputAuthors.close();
         inputBooks.close();
         inputDates.close();
-        inputDiscription.close();
 
         // Ask your to select a book
-        cout << "Select a book: ";
+        cout << "\nSelect a book: ";
 
         // Receive into selectBook variable
         // Error check for input validation
@@ -538,8 +506,21 @@ void Music()
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
                 << '\t'    << book[SELECT_BOOK_1] << ", by "  << endl
-                << "\t\t"  << author[SELECT_BOOK_1] << endl << endl
-                << "    "  << discription[SELECT_BOOK_1]    << endl;
+                << "\t\t"  << author[SELECT_BOOK_1] << endl << endl;
+
+                // Display Description
+                cout << "\tWith the same trademark compassion " << endl
+                     << "and erudition he brought to The Man Who Mistook " << endl
+                     << "His Wife for a Hat, Oliver Sacks explores the place music " << endl
+                     << "occupies in the brain and how it affects the human condition. " << endl
+                     << "In Musicophilia, he shows us a variety of what he calls “musical " << endl
+                     << "misalignments.” Among them: a man struck by lightning who suddenly " << endl
+                     << "desires to become a pianist at the age of forty-two; an entire group " << endl
+                     << "of children with Williams syndrome, who are hypermusical from birth; " << endl
+                     << "people with “amusia,” to whom a symphony sounds like the clattering of " << endl
+                     << "pots and pans; and a man whose memory spans only seven seconds-for everything " << endl
+                     << "but music. Illuminating, inspiring, and utterly unforgettable, Musicophilia " << endl
+                     << "is Oliver Sacks' latest masterpiece." << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -553,8 +534,19 @@ void Music()
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
                 << '\t'    << book[SELECT_BOOK_2] << ", by "  << endl
-                << "\t\t"  << author[SELECT_BOOK_2] << endl << endl
-                << "    "  << discription[SELECT_BOOK_2]    << endl;
+                << "\t\t"  << author[SELECT_BOOK_2] << endl << endl;
+
+                // Display description
+                cout << "\tIn this sweeping and dramatic narrative, " << endl
+                     << "Alex Ross, music critic for The New Yorker, weaves " << endl
+                     << "together the histories of the twentieth century and its music," << endl
+                     << "from Vienna before the First World War to Paris in the twenties; " << endl
+                     << "from Hitler's Germany and Stalin's Russia to downtown New York " << endl
+                     << "in the sixties and seventies up to the present. Taking readers into the " << endl
+                     << "labyrinth of modern style, Ross draws revelatory connections " << endl
+                     << "between the century's most influential composers and the wider " << endl
+                     << "culture. The Rest Is Noise is an astonishing history of the twentieth " << endl
+                     << "century as told through its music." << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -568,8 +560,19 @@ void Music()
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
                 << '\t'    << book[SELECT_BOOK_3] << ", by "  << endl
-                << "\t\t"  << author[SELECT_BOOK_3] << endl << endl
-                << "    "  << discription[SELECT_BOOK_3]    << endl;
+                << "\t\t"  << author[SELECT_BOOK_3] << endl << endl;
+
+                // Display Book 3 description
+                cout << "\tThis bible of the piano marketplace " << endl
+                     << "is indispensable to buyers and owners of pianos, " << endl
+                     << "amateur and professional players alike. Hundreds of thousands " << endl
+                     << "of pianos are bought and sold each year, yet most people buy a" << endl
+                     << "piano with only the vaguest idea of what to look for as they make this" << endl
+                     << "major purchase. The Piano Book evaluates and compares every brand and " << endl
+                     << "style of piano sold in the United States. There is information on piano " << endl
+                     << "moving and storage, inspecting individual new and used pianos, the special" << endl
+                     << "market for Steinways, and sales gimmicks to watch out for. An annual supplement, " << endl
+                     << "sold separately, lists current prices for more than 2,500 new piano models." << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -583,8 +586,20 @@ void Music()
                 clearScreen();
                 cout << "\nYou've selected:"                << endl
                 << '\t'    << book[SELECT_BOOK_4] << ", by "  << endl
-                << "\t\t"  << author[SELECT_BOOK_4] << endl << endl
-                << "    "  << discription[SELECT_BOOK_4]    << endl;
+                << "\t\t"  << author[SELECT_BOOK_4] << endl << endl;
+
+                // Display Book 4 Description
+                cout << "How Music Works is David Byrne's buoyant " << endl
+                     << "celebration of a subject he has spent a lifetime thinking " << endl
+                     << "about. Equal parts historian and anthropologist, raconteur " << endl
+                     << "and social scientist, Byrne draws on his own work over the " << endl
+                     << "years with Talking Heads, Brian Eno, and his myriad collaborators - " << endl
+                     << "along with journeys to Wagnerian opera houses, African villages, " << endl
+                     << "and anywhere music exisits - to show that music - making is not " << endl
+                     << "just the act of a solitary composer in a studio, but rather a logical, " << endl
+                     << "populist, and beautiful result of cultural circumstance. " << endl
+                     << "A brainy, irresistible adventure, How Music Works is an impassioned " << endl
+                     << "argument about music's liberating, life - affirming power." << endl;
 
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
@@ -593,7 +608,6 @@ void Music()
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
                 break;
-
 
             default:
                 cout << "NO WORK." << endl;
@@ -613,9 +627,6 @@ void Music()
             << author[selectBook -1] << ", "
             << date [selectBook -1] << endl;
         }
-
-        // Clear screen
-        clearScreen();
 
         // Ask if would like to make another music selection
         cout << "Would you like to make another "
