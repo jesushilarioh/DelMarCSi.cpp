@@ -1,3 +1,35 @@
+//******************************************************************
+// Project name: BookFlix
+// Team name:
+// Members:
+//      ASHLEY GUZMAN,
+//      REAGEN HAMMITT,
+//      JESUS HERNANDEZ
+
+// Course: COSC 1436.001 Programming Fundamentals 1
+// Group Project
+// Due Date: December 4, 2016
+// Instructor: Korinne Caruso
+//
+// PURPOSE: This program displays a book menu selection for the user
+// to choose from. The user then searches through the progam for a
+// book or books that they would like to read.
+//
+// INPUT: The input in this program comes either from the user or from
+// an input file. The user selects from a initial menu, a book genre
+// menu, and must enter a Y or N for either keep a book or to continue
+// to make another seletion. And then, the user must type
+// a Y or an N to redisplay they menu or to end the program.
+//
+// OUTPUT: Output, in this program, is sent either to the screen
+// or to an output file. The user is displayed an initial menu,
+// a genre menu, asked to select a book, if they would like to keep
+// a book, if they would like to select another book, and if they
+// would like to see the inital menu. The output file receives
+// data from the program, if the user decides to keep a book. The
+// title, date, and author of the book is written to an output file.
+//
+//******************************************************************
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -361,9 +393,15 @@ void Music()
 }
 
 
-//***************************************************
-// Romance Function.                                *
-//***************************************************
+//***************************************************************
+// The romance function displays a menu with romance books to   *
+// choose from. The user is asked to choose a book. A description
+// of the book is then displayed to the user. The user is asked *
+// if they would like to keep the book. If yes, the book info is*
+// then displayed to an output file. If they would not like to  *
+// keep the book, the user will be asked if they would like     *
+// to choose another book from the romance menu.                *
+//***************************************************************
 
 void Romance()
 {
@@ -708,9 +746,15 @@ void Adventure()
     keptBooks.close();
 }
 
-//***************************************************
-// Mystery Function.                                *
-//***************************************************
+//***************************************************************
+// The mystery function displays a menu with mystery books to   *
+// choose from. The user is asked to choose a book. A description
+// of the book is then displayed to the user. The user is asked *
+// if they would like to keep the book. If yes, the book info is*
+// then displayed to an output file. If they would not like to  *
+// keep the book, the user will be asked if they would like     *
+// to choose another book from the mystery menu.                *
+//***************************************************************
 
 void Mystery()
 {
