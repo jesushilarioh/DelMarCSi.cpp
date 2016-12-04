@@ -78,9 +78,7 @@ int main()
 
         }
 
-        // Clear Screen
         cout << "\nWould you like to return to the main menu? (Y/N)" << endl;
-
         // Receive user input into repeat_menu
         cin >> repeat_menu;
         // Error check for valid input (Y/N)
@@ -103,8 +101,8 @@ char errorCheckYorN(char letter)
     {
         // Explain error
         cout << "ERROR: you must choose either Y or N." << endl
-        << "Y for Yes or\n"
-        << "N for No...";
+             << "Y for Yes or\n"
+             << "N for No...";
         // Clear input stream
         cin.clear();
         // Discard previous input
@@ -241,6 +239,7 @@ void Music()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -267,6 +266,7 @@ void Music()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -293,6 +293,7 @@ void Music()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -320,6 +321,7 @@ void Music()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -347,6 +349,7 @@ void Music()
         // Ask if would like to make another music selection
         cout << "Would you like to make another "
         << "music genre selection? (Y/N)";
+        // Receive user input into anotherSelection
         cin >> anotherSelection;
         // Error check anotherSelection
         anotherSelection = errorCheckYorN(anotherSelection);
@@ -601,15 +604,7 @@ void Adventure()
 
         // Receive into selectBook variable
         // Error check for input validation
-        while (!(cin >> selectBook) || (selectBook < 1 || selectBook > SIZE))   // Error Check for valid input
-        {
-            // Describe error
-            cout << "ERROR: you must choose a number between 1 and 4.\n";
-            // Clear input stream
-            cin.clear();
-            // Discard previous input
-            cin.ignore(123, '\n');
-        }
+        selectBook = errorCheckInts1_4(selectBook);
 
         switch (selectBook)
         {
@@ -623,6 +618,7 @@ void Adventure()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -638,6 +634,7 @@ void Adventure()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -653,6 +650,7 @@ void Adventure()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -668,6 +666,7 @@ void Adventure()
                 // Ask is user would like to keep book
                 cout << "\nWould you like to keep this book?";
                 cout << " (Y/N)";
+                // Receive user input into keepBook
                 cin >> keepBook;
                 // Error check keepBook
                 keepBook = errorCheckYorN(keepBook);
@@ -698,7 +697,9 @@ void Adventure()
         // Ask if would like to make another music selection
         cout << "Would you like to make another "
         << "Adventure genre selection? (Y/N)";
+        // Receive user input into anotherSelection
         cin >> anotherSelection;
+        // Error chek anotherSelection for (Y/N)
         anotherSelection = errorCheckYorN(anotherSelection);
 
     } while(anotherSelection == 'y' || anotherSelection == 'Y');// End Do While
@@ -752,7 +753,10 @@ void Mystery()
 
         cout << endl << " Choose a book to read the discription: ";
 
-        cin >> menu_mysterychoice;
+        // Receive user input into menu_mysterychoice
+        // and error check with errorCheckInts1_4 function
+        menu_mysterychoice = errorCheckInts1_4(menu_mysterychoice);
+
         cout << endl;
 
         switch(menu_mysterychoice)
@@ -843,6 +847,10 @@ void Mystery()
         }
         cout << endl << "Would you like to return to the Romance menu? (Y/N)" << endl;
 
+        // Receive user input into repeat_mysterymenu
         cin >> repeat_mysterymenu;
-    } while (repeat_mysterymenu == 'Y' || repeat_mysterymenu == 'y');
+        // Error check repeat_mysterymenu
+        repeat_mysterymenu = errorCheckYorN(repeat_mysterymenu);
+
+    } while (repeat_mysterymenu == 'Y' || repeat_mysterymenu == 'y'); // End do while loop
 }
