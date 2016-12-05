@@ -414,8 +414,9 @@ void Romance()
     // Arrays
     string romanceBookInfo[SIZE];   // Holds Romance Book info: author, title, date
 
-    // Input Files
+    // Input / Output Files
     ifstream file;
+    ofstream outputfile;
 
     do
     {
@@ -477,6 +478,13 @@ void Romance()
                      << " series will keep you breathless and yearning for " << endl
                      << " more." << endl;
             }
+                // Ask is user would like to keep book
+                //cout << "\nWould you like to keep this book?";
+                //cout << " (Y/N)";
+                // Receive user input into keepBook
+                //cin >> keepBook;
+                // Error check keepBook
+                //keepBook = errorCheckYorN(keepBook);
                 break;
             case 2:
             {
@@ -605,17 +613,18 @@ void Adventure()
     char keepBook,              // Holds Y or N
          anotherSelection;      // Holds Y or N to return to adventure menu or not
 
-    // Open input/ouput files
-    inputAuthors.open("Adventure_authors.txt");
-    inputTitle.open("Adventure_titles.txt");
-    inputDates.open("Adventure_date.txt");
-    inputDescription.open("Adventure_descriptions.txt");
-    keptBooks.open("KeptAdventureBooks.txt", ios::out | ios::app);
+
 
 
     // Select Book from a list
     do
     {
+        // Open input/ouput files
+        inputAuthors.open("Adventure_authors.txt");
+        inputTitle.open("Adventure_titles.txt");
+        inputDates.open("Adventure_date.txt");
+        inputDescription.open("Adventure_descriptions.txt");
+        keptBooks.open("KeptAdventureBooks.txt", ios::out | ios::app);
 
         clearScreen();
         // Display list of music books
@@ -638,7 +647,7 @@ void Adventure()
         inputDescription.close();
 
         // Ask your to select a book
-        cout << "Select a book: ";
+        cout << "\nSelect a book: ";
 
         // Receive into selectBook variable
         // Error check for input validation
@@ -649,7 +658,7 @@ void Adventure()
             case (SELECT_BOOK_1 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl;
-                cout << '\t'    << title[SELECT_BOOK_1] << ", by ";
+                cout << "\t"    << title[SELECT_BOOK_1] << ", by ";
                 cout << author[SELECT_BOOK_1] << endl << endl;
                 cout << "    "  << description[SELECT_BOOK_1]    << endl;
 
@@ -665,7 +674,7 @@ void Adventure()
             case (SELECT_BOOK_2 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl;
-                cout << "'\t'"    << title[SELECT_BOOK_2] << ", by ";
+                cout << "\t"    << title[SELECT_BOOK_2] << ", by ";
                 cout << author[SELECT_BOOK_2] << endl << endl;
                 cout << "    "  << description[SELECT_BOOK_2]    << endl;
 
@@ -681,7 +690,7 @@ void Adventure()
             case (SELECT_BOOK_3 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl;
-                cout << '\t'    << title[SELECT_BOOK_3] << ", by ";
+                cout << "\t"    << title[SELECT_BOOK_3] << ", by ";
                 cout << author[SELECT_BOOK_3] << endl << endl;
                 cout << "    "  << description[SELECT_BOOK_3]    << endl;
 
@@ -697,7 +706,7 @@ void Adventure()
             case (SELECT_BOOK_4 + 1):
                 clearScreen();
                 cout << "\nYou've selected:"                << endl;
-                cout << '\t'    << title[SELECT_BOOK_4] << ", by ";
+                cout << "\t"    << title[SELECT_BOOK_4] << ", by ";
                 cout << author[SELECT_BOOK_4] << endl << endl;
                 cout << "    "  << description[SELECT_BOOK_4]    << endl;
 
@@ -889,7 +898,7 @@ void Mystery()
             }
                 break;
         }
-        cout << endl << "Would you like to return to the Romance menu? (Y/N)" << endl;
+        cout << endl << "Would you like to return to the Mystery menu? (Y/N)" << endl;
 
         // Receive user input into repeat_mysterymenu
         cin >> repeat_mysterymenu;
