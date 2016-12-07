@@ -1,14 +1,10 @@
 //********************************************************************
-//
 //This program displays a list of numbers and their squares.
 //
 //By: JESUS HILARIO HERNANDEZ
-//Last Updated: October 5th, 2016
-//
+//Last Updated: December 6th, 2016
 //********************************************************************
-
 #include <iostream>
-
 using namespace std;
 
 int main()
@@ -67,6 +63,7 @@ int main()
         cin.clear();
         // discard previous input
         cin.ignore(1200, '\n');
+        // Re-enter choice again
         cin >> stringChoice;
     }
 
