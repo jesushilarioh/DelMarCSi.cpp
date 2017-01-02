@@ -1,8 +1,8 @@
-## Welcome to GitHub Pages
+## Welcome to my C++ files
 
-You can use the [editor on GitHub](https://github.com/jesushilariohernandez/DelMarCSi.cpp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+You can find the direct link to all the code [here](https://github.com/jesushilariohernandez/DelMarCSi.cpp), found on github.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+If you find these files at all helpful, please feel free to star this [repository](https://github.com/jesushilariohernandez/DelMarCSi.cpp). Also feel free to create a pull request as well!
 
 ### Markdown
 
