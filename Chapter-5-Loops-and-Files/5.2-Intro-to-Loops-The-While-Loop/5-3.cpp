@@ -1,9 +1,12 @@
-//***********************************************************
-// This program demonstrates a simple while loop.
+//************************************************
+// This program demonstrates a simple while loop
 //
-// By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 31, 2016
-//***********************************************************
+// By: Jesus Hilario Hernandez
+// Last Updated: December 29, 2016
+//
+// Used from: Gaddis, "Starting Out With C++",
+//  8th Edition, Pg 234
+//************************************************
 #include <iostream>
 using namespace std;
 
@@ -18,5 +21,4 @@ int main()
     }
     cout << "That's all!\n";
     return 0;
-
 }

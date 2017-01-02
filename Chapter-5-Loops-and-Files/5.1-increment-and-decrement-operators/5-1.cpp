@@ -1,15 +1,18 @@
-//***********************************************************
-// This program demonstrates the ++ and -- operators.
+//*****************************************************
+// This program demonstrates the ++ and -- operators
 //
-// By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 31, 2016
-//***********************************************************
+// By: Jesus Hilario Hernandez
+// Last Updated: December 29, 2016
+//
+// Used from: Gaddis, "Starting Out With C++", 
+//  8th Edition, Pg. 228
+//*****************************************************
 #include <iostream>
 using namespace std;
 
 int main()
 {
-    int num = 4;   // num starts out with 4.
+    int num = 4;    // num startes out with 4.
 
     // Display the value in num.
     cout << "The variable num is " << num << endl;
@@ -22,16 +25,16 @@ int main()
 
     // Use prefix ++ to increment num.
     ++num;
-    cout << "Now the variable num is " << num << endl;
-    cout << "I will now decrement num.\n\n";
+    cout << "Now the variable is " << num << endl;
+    cout << "I will decrement num.\n\n";
 
-    // Use postfix -- to decrement num
+    // Use postfix -- to decrement num.
     num--;
     cout << "Now the variable num is " << num << endl;
-    cout << "I will decrement num again.\n\n";
+    cout << "I will decrement num agian.\n\n";
 
     // Use prefix -- to increment num.
     --num;
-    cout << "Now the variable num is " << num << endl;
+    cout << "Now the variabe num is " << num << endl;
     return 0;
 }

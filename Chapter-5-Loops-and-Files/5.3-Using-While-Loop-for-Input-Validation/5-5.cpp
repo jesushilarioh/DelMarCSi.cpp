@@ -1,15 +1,15 @@
-//***********************************************************
-// This program calculates the number of soccer teams that a
-// youth league may create from the number of available
-// players. Input validation is demonstrated with while loops
+//****************************************************
+// This program calculates the number of soccer teams
+// that a youth league may create from the number of
+// available players. Input validation is demonstrated
+// with while loops.
 //
-// By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 31, 2016
-//***********************************************************
+// By: Jesus Hilario Hernandez
+// Last Updated: January 1, 2017
+//****************************************************
 #include <iostream>
 using namespace std;
 
-int inputVal(int);            // Used for input checking
 int main()
 {
     // Constants for minimum and maximum players
@@ -17,16 +17,16 @@ int main()
               MAX_PLAYERS = 15;
 
     // Variables
-    int players,        // Number of available players
-        teamPlayers,    // Number of desired players per team
-        numTeams,       // Number of teams
-        leftOver;       // Number of players left over
+    int players,    // Number of available players
+        teamPlayers,// Number of desired players per team
+        numTeams,   // Number of teams
+        leftOver;   // Number of players left over
 
-    // Get number of players per team.
-    cout << "How many players do you wish per team?";
-    teamPlayers = inputVal(teamPlayers);
+    // Get the number of players per team.
+    cout << "How many players do you wish per team? ";
+    cin >> teamPlayers;
 
-    // Validate input.
+    // Validate the input
     while (teamPlayers < MIN_PLAYERS || teamPlayers > MAX_PLAYERS)
     {
         // Explain the error.
@@ -35,19 +35,19 @@ int main()
 
         // Get the input again.
         cout << "How many players do you wish per team? ";
-        teamPlayers = inputVal(teamPlayers);
+        cin >> teamPlayers;
     }
 
-    // Get number of players available.
-    cout << "How many players are available? ";
-    players = inputVal(players);
+    // Get the number of players available.
+    cout << "How many players available? ";
+    cin >> players;
 
-    // Validate the input.
+    // Validate the input
     while (players <= 0)
     {
-        // Get input again.
+        // Get the input again.
         cout << "Please enter 0 or greater: ";
-        players = inputVal(players);
+        cin >> players;
     }
 
     // Calculate the number of teams.
@@ -60,16 +60,4 @@ int main()
     cout << "There will be " << numTeams << " teams with "
          << leftOver << " players left over.\n";
     return 0;
-
-}
-
-int inputVal(int num)
-{
-    while(!(cin >> num))
-    {
-        cout << "I'm sorry, a number must be entered...";
-        cin.clear();
-        cin.ignore(123, '\n');
-    }
-    return num;
 }
