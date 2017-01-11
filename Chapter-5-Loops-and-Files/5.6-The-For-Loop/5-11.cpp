@@ -1,10 +1,11 @@
-//***********************************************************
-// This program converts the speeds 60 kph through 130 kph
-// (in 10 kph increments) to mph.
+//**************************************
+// This program converts the speeds 60
+// kph through 130 kph (in 10 kph
+// increments) to mph.
 //
-// By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 31, 2016
-//***********************************************************
+// By :  Jesus Hilario Hernandez
+// Last Updated: January 10, 2017
+//**************************************
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -14,23 +15,23 @@ int main()
     // Constants for the speeds
     const int START_KPH = 60,   // Starting speed
               END_KPH = 130,    // Ending speed
-              INCREMENT = 10;   // Speed increment
+              INCREMENT = 10;   // Speed INCREMENT
 
-    // Constant for the conversion factor
+    // Constants for the conversion factor
     const double CONVERSION_FACTOR = 0.6214;
 
     // Variables
-    int kph;        // To hold speeds in kph
-    double mph;     // To hold speeds in mph
+    int kph;    // To hold speeds in kph
+    double mph; // To hold speeds in mph
 
-    // Set the numeric output formatting
+    // Set the numeric output formatting.
     cout << fixed << showpoint << setprecision(1);
 
     // Display the table headings.
     cout << "KPH\tMPH\n";
     cout << "---------------\n";
 
-    // Display the speeds.
+    // Display the  speeds.
     for (kph = START_KPH; kph <= END_KPH; kph += INCREMENT)
     {
         // Calculate mph
