@@ -1,5 +1,5 @@
 //********************************************************
-// This program utilizes a function to writes the contents
+// This program utilizes a function to write the contents
 // of 4 separate arrays. Who have the same column length.
 //
 // By: Jesus Hilario Hernandez
