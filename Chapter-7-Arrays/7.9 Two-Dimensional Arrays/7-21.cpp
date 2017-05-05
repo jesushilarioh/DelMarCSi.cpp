@@ -2,11 +2,14 @@
 // This program demonstrates a two-dimensional array.
 //
 // By: Jesus Hilario Hernandez
-// Last Updated: November 11, 2016
+// Last Updated: May 5th, 2017
 //********************************************************
 #include <iostream>
 #include <iomanip>
 using namespace std;
+
+// Function Prototypes
+double inputVal(double);
 
 int main()
 {
@@ -28,7 +31,7 @@ int main()
         {
             cout << "Division " << (div + 1);
             cout << ", Quarter " << (qtr + 1) << ": $";
-            cin >> sales[div][qtr];
+            sales[div][qtr] = inputVal(sales[div][qtr]);
         }
         cout << endl; // Print blank line.
     }
@@ -46,4 +49,22 @@ int main()
     cout << "The total sales for the company are: $";
     cout << totalSales << endl;
     return 0;
+}
+
+//***********************************************************
+// The inputVal function checks for valid user input when   *
+// checking for entered doubles.                            *
+//***********************************************************
+double inputVal(double num)
+{
+    while(!(cin >> num))
+    {
+        // Explain Error
+        cout << " Sorry, a number must be entered..." << endl;
+        // Clear input stream
+        cin.clear();
+        // Discard previous input
+        cin.ignore(132, '\n');
+    }
+    return num;
 }
