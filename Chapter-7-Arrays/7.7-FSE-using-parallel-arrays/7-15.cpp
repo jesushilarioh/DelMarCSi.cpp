@@ -3,7 +3,7 @@
 // worked and one for pay rate.
 //
 // By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 27, 2016
+// Last Updated: May 5th, 2017
 //***********************************************************
 #include <iostream>
 #include <iomanip>
@@ -42,13 +42,15 @@ int main()
         cout << ": $" << grossPay << endl;
     }
 
-    cout << "\nThe number in array hours are: " << endl;
+    // Display numbers of hours array
+    cout << "\nThe numbers in array hours are: " << endl;
     for (int index = 0; index < NUM_EMPLOYEES; index++)
     {
         cout << hours[index] << endl;
     }
 
-    cout << "\nThe number in array payRate are: " << endl;
+    // Display the numbers in payRate array
+    cout << "\nThe numbers in array payRate are: " << endl;
     for (int index = 0; index < NUM_EMPLOYEES; index++)
     {
         cout << payRate[index] << endl;

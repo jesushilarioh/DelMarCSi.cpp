@@ -1,13 +1,21 @@
 //*********************************************************************
 // This program uses a function to double the value of each
 // element of an array within a function. However, the contents in
-// the array are cannot be changed because of the const int keyword
-// parameter within the functio header. Further, this program WILL NOT!!!
-// run. A compiler error will occur because the of use of const the keyword
-// ...the const keyword makes the array readable only and cannot be changed
+// the array cannot be changed because of the const int keyword
+// parameter within the function header. Further, this program WILL NOT!!!
+// run. A compiler error will occur because the of use of the const keyword
+// ...the const keyword makes the array readable only and cannot be changed.
+//
+// When compiled, this error will occur.
+//
+//  (
+//      read-only variable is not assignable
+//          nums[index] *= 2;
+//          ~~~~~~~~~~~ ^
+//  )
 //
 // By: JESUS HILARIO HERNANDEZ
-// Last Updated: November 8, 2016
+// Last Updated: May 5th, 2017
 //*********************************************************************
 #include <iostream>
 using namespace std;

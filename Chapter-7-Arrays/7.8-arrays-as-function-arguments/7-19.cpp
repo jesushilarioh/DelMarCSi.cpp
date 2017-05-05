@@ -3,14 +3,14 @@
 // element of an array
 //
 // By: JESUS HILARIO HERNANDEZ
-// Last Updated: November 8, 2016
+// Last Updated: May 5th, 2017
 //***************************************************************
 #include <iostream>
 using namespace std;
 
 // Functions prototypes
-void doubleArray(int[], int);
-void showValues(int[], int);
+void doubleArray(int [], int);
+void showValues(int [], int);
 
 int main()
 {
