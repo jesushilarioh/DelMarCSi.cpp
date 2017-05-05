@@ -1,11 +1,19 @@
-//***********************************************************
+//**************************************************************************
 // This program gets a series of test scores and
 // calculates the average of the scores with the lowest
 // score dropped.
+//*********************** Pseudocode algorithim: ***************************
+//  Read the student's four test scores.
+//  Calculate the total of the scores.
+//  Find the lowest score.
+//  Subtract the lowest score from the total. This gives the adjusted total.
+//  Divide the adjusted total by 3. This is the average.
+//  Display the average.
+//**************************************************************************
 //
 // By: JESUS HILARIO HERNANDEZ
 // Last Updated: November 8, 2016
-//***********************************************************
+//**************************************************************************
 #include <iostream>
 #include <iomanip>
 using namespace std;

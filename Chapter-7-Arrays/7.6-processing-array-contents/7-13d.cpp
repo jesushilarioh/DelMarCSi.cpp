@@ -3,7 +3,7 @@
 // numeric array.
 //
 // By: JESUS HILARIO HERNANDEZ
-// Last Updated: October 27, 2016
+// Last Updated: May 5th, 2017
 //***********************************************************
 #include <iostream>
 #include <iomanip>
@@ -21,6 +21,8 @@ int main()
     int highest;
 
     highest = numbers[0];
+    // count is 1 because heighest variable is assined to numbers
+    // with a subscript 0.
     for (count = 1; count < SIZE; count++)
     {
         if (numbers[count] > highest)
