@@ -1,6 +1,6 @@
 /********************************************************************
 *
-*	11. TOTAL PURCHASE
+*	11. DISTANCE PER TANK OF GAS
 *       A car with a 20-gallon gas tank averages 23.5 mile per gallon
 *       when driven in town and 28.9 miles per gallon when driven on
 *       the highway. Write a program that calculates and displays the

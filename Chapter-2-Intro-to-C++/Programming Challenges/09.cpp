@@ -1,6 +1,6 @@
 /********************************************************************
 *
-*	09. TOTAL PURCHASE
+*	09. CYBORG DATA TYPE SIZES
 *       You have been given a job as a programmer on a Cyborg
 *       supercomputer. In order to accomplish some calculations, you
 *       need to know how many bytes the following data types use:
