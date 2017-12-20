@@ -1,6 +1,6 @@
 /********************************************************************
 *
-*	07. TOTAL PURCHASE
+*	08. TOTAL PURCHASE
 *       A customer in a store is purchasing five items. The prices of
 *       five items are
 *
