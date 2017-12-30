@@ -20,6 +20,9 @@ int main()
     float numOfAcres = 391876;
 
     cout << setprecision(3) << fixed << endl;
+    cout << "---------------" << endl;
+    cout << "One acre of land is equivalent to 43,560 sqft." << endl;
+    cout << "---------------" << endl << endl;
     cout << "There are approximately " << numOfAcres / 43560;
     cout <<  " acres in a" << endl;
     cout << "tract of land that has 391,876 square feet." << endl;

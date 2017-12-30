@@ -1,7 +1,7 @@
 //******************************************************************
 // Convert the follow pseudocode to C++ code. Be sure to define the
 // appropriate variables.
-
+//
 //      Store 20 in the speed variable.
 //      Store 10 in the time variable.
 //      Multiply speed by time and store the result in the
