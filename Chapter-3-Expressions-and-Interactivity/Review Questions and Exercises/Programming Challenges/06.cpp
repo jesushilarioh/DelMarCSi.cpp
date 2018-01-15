@@ -18,17 +18,20 @@
 *
 ********************************************************************/
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 
 int main()
 {
-    int num_of_cookies_to_make = 24;
-    float total_cups_butter,
+    float num_of_cookies_to_make,
+          total_cups_butter,
           total_cups_sugar,
           total_cups_flour;
     // Ask the user how many cookies they want to make
-    cout << "\nHow many cookies do you want to make? " << endl;
-    // cin >> num_of_cookies_to_make;
+    cout << setprecision(4);
+    cout << "\nHow many cookies do you want to make? ";
+    cin >> num_of_cookies_to_make;
 
     // Calculate the amount of ingredients it takes to make
         // 1.5 cup of sugar   = 48 cookies
@@ -44,9 +47,10 @@ int main()
         // 2.75 cups of flour = 48 cookies
     // Display the number of cups for each ingredient.
     cout <<"To make " << num_of_cookies_to_make << " cookies ";
-    cout << "you will need the following ingredients: " << endl;
-    cout << " - " << total_cups_sugar << " cups of sugar." << endl
-    cout << " - " 
+    cout << "you will need the following ingredients: " << endl << endl;
+    cout << " - " << total_cups_sugar << " cups of sugar" << endl;
+    cout << " - " << total_cups_butter << " cups of butter" << endl;
+    cout << " - " << total_cups_flour << " cups of flour" << endl;
     cout << endl;
 
     return 0;
