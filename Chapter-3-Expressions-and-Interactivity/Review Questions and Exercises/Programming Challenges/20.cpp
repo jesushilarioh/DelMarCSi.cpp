@@ -26,18 +26,43 @@
 *       by 2 to get the radius.
 *
 *       Make sure the output of the program displays the number of
-*       slices in fixed point nota- tion, rounded to one decimal
+*       slices in fixed point notation, rounded to one decimal
 *       place of precision. Use a named constant for pi.
 *
 * 	Jesus Hilario Hernandez
-* 	January 9th 2017
+* 	January 28th 2017
 *
 ********************************************************************/
 #include <iostream>
+#include <cmath>    // For use of  pow() function.
+#include <iomanip>  // For use of setprecision() function.
 using namespace std;
 
 int main()
 {
+    const float SLICE_AREA_SIZE = 14.125,
+                PI         = 3.14159;
+    float d,
+          r,
+          Area,
+          num_of_slices;
 
+    // Ask the user for the diameter of the pizza in inches.
+    cout << endl;
+    cout << "What is the diameter of the pizza in inches? ";
+    cin >> d;
+
+    // Calculate the # of slices that may be taken from a pizza
+    // of that size
+    r = d / 2;
+    Area = PI * pow(r, 2);
+    num_of_slices = Area / SLICE_AREA_SIZE;
+
+    // Display a message telling the number of slices.
+    cout << setprecision(1) << fixed;
+    cout << "Number of slices = " << num_of_slices << endl;
+    cout << endl;
+
+    // Terminate program
     return 0;
 }

@@ -39,6 +39,23 @@ using namespace std;
 
 int main()
 {
+    const STOCK_BROKER_COMMISSION = .02;
+    float joes_stock = 1000;
+
+    // Display the following:
+    //       • The amount of money Joe paid for the stock.
+    cout << "Amount paid for the stock: " << joes_stock;
+    cout << ""
+    //       • The amount of commission Joe paid his broker when he
+    //         bought the stock.
+    //       • The amount that Joe sold the stock for.
+    //       • The amount of commission Joe paid his broker when he sold
+    //         the stock.
+    //       • Display the amount of profit that Joe made after selling
+    //         his stock and paying the two commissions to his broker.
+    //         (If the amount of profit that your program displays is a
+    //         negative number, then Joe lost money on the transaction.)
+
 
     return 0;
 }
