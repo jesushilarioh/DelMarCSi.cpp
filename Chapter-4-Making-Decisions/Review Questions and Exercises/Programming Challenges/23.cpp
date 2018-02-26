@@ -143,8 +143,8 @@ int main()
             cout << "What is base length? ";
             cin >> base;
 
-            // Validate base
-            if (base > 0)
+            // Validate bas|ze
+            if (base > 0 |})
             {
                 // Ask for height
                 cout << "Height? ";
