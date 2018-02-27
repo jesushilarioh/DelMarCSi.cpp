@@ -28,7 +28,7 @@
 *       num − static_cast<int>(num)
 *
 * 	Jesus Hilario Hernandez
-* 	February 1, 2018
+* 	February 24, 2018
 *
 ********************************************************************/
 #include <iostream>
@@ -81,7 +81,7 @@ int main()
             {
                 // Variables
                 float total_charges;
-                
+
                 // Display charges
                 cout << setprecision(2) << fixed;
                 cout << "Total charges = $";

@@ -1,23 +1,12 @@
 /********************************************************************
 *
-*	25. Mobile Service Provider
+*	26. Mobile Service Provider, Part 2
 *
-*       A mobile phone service provider has three different
-*       subscription packages for its customers:
-*
-*       Package A: For $39.99 per month 450 minutes are provided.
-*                  Additional minutes are $0.45 per minute.
-*       Package B: For $59.99 per month 900 minutes are provided.
-*                  Additional minutes are $0.40 per minute.
-*       Package C: For $69.99 per month unlimited minutes provided.
-*
-*       Write a program that calculates a customer’s monthly bill.
-*       It should ask which package the customer has purchased and how
-*       many minutes were used. It should then display the total amount
-*       due.
-*
-*       Input Validation: Be sure the user only selects package A, B, or
-*       C.
+*       Modify the Program in Programming Challenge 25 so that
+*       it also displays how much money Package A customers would
+*       save if they purchased packages B or C, and how much money
+*       Package B customers would save if they purchased Package C.
+*       If there would be no savings, no message should be printed.
 *
 * 	Jesus Hilario Hernandez
 * 	February 26, 2018
