@@ -9,13 +9,26 @@
 *       If there would be no savings, no message should be printed.
 *
 * 	Jesus Hilario Hernandez
-* 	February 26, 2018
+* 	February 28, 2018
 *
 ********************************************************************/
 #include <iostream>
+#include <iomanip>
+
 using namespace std;
 int main()
 {
+	// Constant Variables
+    const float A_CHARGES = 39.99,
+	
+   				A_ADD 	  = .45,
+    			A_MINS 	  = 450,
+    			B_CHARGES = 59.99,
+    			B_ADD	  = .40,
+    			B_MINS	  = 900,
+			
+    			C_CHARGES = 69.99;
+    				
     // Variables
     char menu_choice;
 
@@ -34,9 +47,12 @@ int main()
     // Validate menu_choice
     switch (menu_choice)
     {
+    	
         // Variables
         int mins_used;
-        float total_charges;
+        float total_charges_A,
+        	  total_charges_B,
+        	  total_charges_C;
 
         case 'a':
         case 'A':
@@ -58,22 +74,46 @@ int main()
             else
             {
                 // Display total amount due
-                cout << "Total monthly charges: ";
-
+                cout << setprecision(2) << fixed;
+                
+                // Conditional Statement for each Package
+				total_charges_A = mins_used > A_MINS ? A_CHARGES + ((mins_used - A_MINS) * A_ADD) : A_CHARGES;
+				total_charges_B = mins_used > B_MINS ? B_CHARGES + ((mins_used - B_MINS) * B_ADD) : B_CHARGES;
+				total_charges_C = C_CHARGES;
+				
                 // Calculates customer's monthly bill (choice A)
                 if (menu_choice == 'a' || menu_choice == 'A')
-                    total_charges = mins_used > 450 ? 39.99 + ((mins_used - 450) * .45) : 39.99;
-
+                {
+                    cout << "Package A monthly charges: $" << total_charges_A << endl;
+                    cout << endl;
+                    
+                    // Decides if Package A is greater than B
+                    if (total_charges_A > total_charges_B)
+                    {
+                    	cout << "You could have saved $" << total_charges_A - total_charges_B;
+                    	cout << " with Package B." << endl;
+                    	cout << "You could have saved $" << total_charges_A - total_charges_C;
+                    	cout << " with Package C." << endl;
+                    }
+                    
+				}
                 // Calculates customer's monthly bill (choice B)
                 else if (menu_choice == 'b' || menu_choice == 'B')
-                    total_charges = mins_used > 900 ? 59.99 + ((mins_used - 900) * .40) : 59.99;
-
+                {
+                	cout << "Package B monthly charges: $" << total_charges_B << endl;
+                    
+                    // Decides if Package B is greater than B
+                    if (total_charges_B > total_charges_C)
+                    {
+                    	cout << "You could have saved $" << total_charges_B - total_charges_C;
+                    	cout << " with Package C." << endl;
+                    }
+                    
+				}
                 // Calculates customer's monthly bill (choice C)
                 else if (menu_choice == 'c' || menu_choice == 'C')
-                    total_charges = 69.99;
+                	cout << "Package C monthly charges: $" << total_charges_C << endl;
 
-                // Display total charges
-                cout << total_charges << endl;
             }
             break;
 
