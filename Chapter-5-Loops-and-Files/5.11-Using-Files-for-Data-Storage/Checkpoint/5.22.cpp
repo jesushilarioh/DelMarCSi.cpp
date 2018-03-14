@@ -17,7 +17,7 @@
 using namespace std;
 int main()
 {
-	// Define file stream object to link numbers.txt file
+	// Define output file stream object to link numbers.txt file
 	ofstream output_file;
 	
 	// 1.	Open file numbers.txt through file stream object (output_file)
